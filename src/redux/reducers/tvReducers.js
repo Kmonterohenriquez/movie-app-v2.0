@@ -13,7 +13,6 @@ const initialState = {
 };
 
 export default function tvReducer(state = initialState, action) {
-	console.log('tv reducer fired');
 	const { type, payload } = action;
 	switch (type) {
 		case AIRING_TODAY_SHOWS:
