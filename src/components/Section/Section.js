@@ -10,7 +10,7 @@ const Section =(props)=> {
 						{/* // loop to get all movies or show inside of the carousel */}
 						{props.movieData.map(curr => (
 							<div className='single-movie swiper-slide'>
-								<Link to={`/movie/${curr.id}`} key={curr.id}>
+								<Link to={`/details/${curr.id}`} key={curr.id}>
 									<p>{curr.title || curr.original_name}</p>
 									<img
 										src={`http://image.tmdb.org/t/p/w185/${curr.poster_path}`}

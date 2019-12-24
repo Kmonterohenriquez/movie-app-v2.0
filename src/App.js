@@ -1,14 +1,23 @@
 import React from 'react';
-import './App.css';
-import router from './router'
-import Nav from './components/Nav/Nav'
-function App() {
+import './App.sass';
+import router from './router';
+import Nav from './components/Nav/Nav';
+import { withRouter } from 'react-router-dom';
+
+function App(props) {
+	const currLocation = props.location.pathname;
 	return (
 		<div className='App'>
-			<Nav />
-			{router}
+			{currLocation === '/login' || currLocation === '/signup' || true === currLocation.includes("/detail")? (
+				<>{router}</>
+			) : (
+				<>
+					<Nav />
+					{router}
+				</>
+			)}
 		</div>
 	);
 }
 
-export default App;
+export default withRouter(App);

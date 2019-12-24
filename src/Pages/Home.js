@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // COMPONENTS
-import Section from '../components/Section.js';
+import Section from '../components/Section/Section.js';
 // REDUX
 import { connect } from 'react-redux';
 // MOVIES
@@ -13,7 +13,10 @@ import getAiringTodayShows from '../redux/actions/Tv/getAiringTodayShows';
 import getPopularShows from '../redux/actions/Tv/getPopularShows';
 import getOnTheAirShows from '../redux/actions/Tv/getOnTheAirShows';
 import getTopRatedShows from '../redux/actions/Tv/getTopRatedShows';
-import carousel from '../components/carousel';
+// ITEM TYPE
+import setItemType from '../redux/actions/setItemType'
+//SWIPER
+import carousel from '../components/carousel/carousel';
 class Home extends Component {
 	// const [categoryToggle, setCategoryToggle] = useState(true);
 	state = {
@@ -57,21 +60,21 @@ class Home extends Component {
 		carousel();
 		return (
 			<div>
-				<button onClick={() => this.categoryToggle(true)}>movies</button>
-				<button onClick={() => this.categoryToggle(false)}>Tv Shows</button>
+				<button onClick={() => {this.categoryToggle(true);  this.props.setItemType('movie');}}>movies</button>
+				<button onClick={() => {this.categoryToggle(false); this.props.setItemType('tv');}}>Tv Shows</button>
 				{this.state.categoryToggle ? (
 					<div className='movies'>
-						<Section title='Upcoming' movieData={upcoming} />
-						<Section title='Now Playing' movieData={nowPlaying} />
-						<Section title='Popular' movieData={popular} />
-						<Section title='Top Rated' movieData={topRated} />
+						<Section title='Upcoming' movieData={upcoming} type='movie'/>
+						<Section title='Now Playing' movieData={nowPlaying} type='movie'/>
+						<Section title='Popular' movieData={popular} type='movie'/>
+						<Section title='Top Rated' movieData={topRated} type='movie'/>
 					</div>
 				) : (
-					<div className='movies'>
-						<Section title='Airing Today' movieData={airingTodayShows} />
-						<Section title='Popular' movieData={popularShows} />
-						<Section title='On the Air' movieData={onTheAirShows} />
-						<Section title='Top Rated' movieData={topRatedShows} />
+					<div className='tv'>
+						<Section title='Airing Today' movieData={airingTodayShows} type='tv'/>
+						<Section title='Popular' movieData={popularShows} type='tv'/>
+						<Section title='On the Air' movieData={onTheAirShows} type='tv'/>
+						<Section title='Top Rated' movieData={topRatedShows} type='tv'/>
 					</div>
 				)}
 			</div>
@@ -88,7 +91,9 @@ const mapStateToProps = state => ({
 	airingTodayShows: state.getAiringTodayShows,
 	onTheAirShows: state.getOnTheAirShows,
 	popularShows: state.getPopularShows,
-	topRatedShows: state.getTopRatedShows
+	topRatedShows: state.getTopRatedShows,
+	//OTHERS
+	itemType: state.setItemType
 });
 
 // const mapDispatcherToProps = dispatch => ({
@@ -105,5 +110,6 @@ export default connect(mapStateToProps, {
 	getAiringTodayShows,
 	getPopularShows,
 	getOnTheAirShows,
-	getTopRatedShows
+	getTopRatedShows,
+	setItemType
 })(Home);

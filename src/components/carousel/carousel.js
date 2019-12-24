@@ -1,6 +1,6 @@
 // import React from 'react'
 import Swiper from 'swiper';
-import '../../node_modules/swiper/css/swiper.css'
+import '../../../node_modules/swiper/css/swiper.css'
 export default function carousels(){
     // Initiates carousels
 		// () => {
