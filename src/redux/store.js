@@ -6,13 +6,15 @@ import getPopularMovies from './reducers/movieReducer';
 import getUpcomingMovies from './reducers/movieReducer';
 import getTopRatedMovies from './reducers/movieReducer';
 import getNowPlayingMovies from './reducers/movieReducer';
-
 // TV SHOWS
 import getAiringTodayShows from './reducers/tvReducers';
-import getOnTheAirShows from './reducers/tvReducers'
-import getPopularShows from './reducers/tvReducers'
-import getTopRatedShows from './reducers/tvReducers'
-
+import getOnTheAirShows from './reducers/tvReducers';
+import getPopularShows from './reducers/tvReducers';
+import getTopRatedShows from './reducers/tvReducers';
+// OTHERS
+import getSingleDetail from './reducers/singleDetailReducer';
+import setItemTypeReducer from './reducers/setItemTypeReducer';
+import movieReviewReducer from './reducers/movieReviewReducer';
 
 const rootReducer = combineReducers({
 	getPopularMovies,
@@ -22,7 +24,10 @@ const rootReducer = combineReducers({
 	getAiringTodayShows,
 	getOnTheAirShows,
 	getPopularShows,
-	getTopRatedShows
+	getTopRatedShows,
+	getSingleDetail,
+	setItemTypeReducer,
+	movieReviewReducer
 });
 
 const middleware = [thunk];
