@@ -1,0 +1,13 @@
+export const API_KEY = 'dd36eee247f144ba66fce886e88c3fa7';
+
+// MOVIES
+export const POPULAR_MOVIES = 'POPULAR_MOVIES';
+export const UPCOMING_MOVIES = 'UPCOMING_MOVIES';
+export const TOP_RATED_MOVIES = 'TOP_RATED_MOVIES';
+export const NOW_PLAYING_MOVIES = 'NOW_PLAYING_MOVIES';
+
+// TV SHOWS
+export const AIRING_TODAY_SHOWS = 'LATEST_SHOWS';
+export const POPULAR_SHOWS = 'POPULAR_SHOWS';
+export const ON_THE_AIR_SHOWS = 'ON_THE_AIR_SHOWS';
+export const TOP_RATED_SHOWS = 'TOP_RATED_SHOWS';
