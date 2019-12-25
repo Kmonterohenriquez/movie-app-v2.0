@@ -4,12 +4,14 @@ import Summary from '../components/DetailsComponents/Summary/Summary';
 import PopularReviews from '../components/DetailsComponents/PopularReviews/PopularReviews';
 import PostReview from '../components/DetailsComponents/PostReview/PostReview';
 import Trailers from '../components/DetailsComponents/Trailers/Trailers';
+import Casts from '../components/DetailsComponents/Casts/Casts'
 // REDUX
 import { connect } from 'react-redux';
 import getSingleDetail from '../redux/actions/getSingleDetail';
 import setItemType from '../redux/actions/setItemType';
 import getItemReviews from '../redux/actions/getItemReviews';
 import getItemTrailers from '../redux/actions/getItemTrailers';
+import getItemCasts from '../redux/actions/getItemCasts';
 
 class Details extends Component {
 	state = {};
@@ -20,11 +22,14 @@ class Details extends Component {
 		this.props.getItemReviews('movie', id);
 		// this.props.setItemType('tv');
 		this.props.getItemTrailers('movie', id);
+		this.props.getItemCasts('movie', id);
 	}
 	render() {
 		const { singleDetail } = this.props.singleDetail;
 		const reviews = this.props.itemReviews.itemReviews;
-		const trailers = this.props.itemTrailers.itemTrailers
+		const trailers = this.props.itemTrailers.itemTrailers;
+		const casts = this.props.itemCasts.itemCasts;
+
 		return (
 			<div className='Details' style={{ background: '#2D132C' }}>
 				<Header
@@ -37,7 +42,7 @@ class Details extends Component {
 				/>
 				<div className='container'>
 					<Summary overview={singleDetail.overview} />
-					{/* <Cast cast={this.state.cast} />*/}
+					<Casts cast={casts} />
 					<Trailers trailers={trailers} />
 					<PostReview />
 					<PopularReviews reviews={reviews} />
@@ -51,12 +56,14 @@ const mapStateToProps = state => ({
 	singleDetail: state.getSingleDetail,
 	itemType: state.setItemType,
 	itemReviews: state.itemReviewReducer,
-	itemTrailers: state.itemTrailersReducer
+	itemTrailers: state.itemTrailersReducer,
+	itemCasts: state.itemCastsReducer
 });
 
 export default connect(mapStateToProps, {
 	getSingleDetail,
 	setItemType,
 	getItemReviews,
-	getItemTrailers
+	getItemTrailers,
+	getItemCasts
 })(Details);

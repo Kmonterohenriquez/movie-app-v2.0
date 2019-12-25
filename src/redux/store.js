@@ -14,8 +14,9 @@ import getTopRatedShows from './reducers/tvReducers';
 // OTHERS
 import getSingleDetail from './reducers/singleDetailReducer';
 import setItemTypeReducer from './reducers/setItemTypeReducer';
-import itemReviewReducer from './reducers/itemReviewReducer'
-import itemTrailersReducer from './reducers/itemTrailersReducer'
+import itemReviewReducer from './reducers/itemReviewReducer';
+import itemTrailersReducer from './reducers/itemTrailersReducer';
+import itemCastsReducer from './reducers/itemCastsReducer';
 
 const rootReducer = combineReducers({
 	getPopularMovies,
@@ -29,7 +30,8 @@ const rootReducer = combineReducers({
 	getSingleDetail,
 	setItemTypeReducer,
 	itemReviewReducer,
-	itemTrailersReducer
+	itemTrailersReducer,
+	itemCastsReducer
 });
 
 const middleware = [thunk];
