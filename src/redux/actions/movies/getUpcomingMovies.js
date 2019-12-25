@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { UPCOMING_MOVIES, API_KEY } from '../types';
+import { UPCOMING_MOVIES } from '../types';
+import {API_KEY} from '../API_KEY'
 
 const getUpcomingMovies = url => dispatch => {
 	axios

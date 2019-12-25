@@ -1,5 +1,4 @@
-export const API_KEY = 'dd36eee247f144ba66fce886e88c3fa7';
-
+export const ITEM_REVIEWS = 'ITEM_REVIEWS';
 // MOVIES
 export const POPULAR_MOVIES = 'POPULAR_MOVIES';
 export const UPCOMING_MOVIES = 'UPCOMING_MOVIES';
@@ -18,4 +17,3 @@ export const SINGLE_DETAIL = 'SINGLE_DETAIL';
 // SET ITEM TYPE
 export const SET_ITEM_TYPE_TV = 'SET_ITEM_TYPE_TV';
 export const SET_ITEM_TYPE_MOVIE = 'SET_ITEM_TYPE_MOVIE';
-export const ITEM_REVIEW = 'ITEM_REVIEW';

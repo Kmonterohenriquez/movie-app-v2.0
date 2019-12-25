@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const setItemType = (state = initialState, action) => {
-	console.log('setItem reducer fired')
+	// console.log('setItem reducer fired')
 	switch (action.type) {
 		case SET_ITEM_TYPE_MOVIE:
 			return {

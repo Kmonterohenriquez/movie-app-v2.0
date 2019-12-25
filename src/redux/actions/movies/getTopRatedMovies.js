@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { TOP_RATED_MOVIES, API_KEY } from '../types';
+import { TOP_RATED_MOVIES } from '../types';
+import {API_KEY} from '../API_KEY'
 
 const getTopRatedMovies = () => dispatch => {
 	axios

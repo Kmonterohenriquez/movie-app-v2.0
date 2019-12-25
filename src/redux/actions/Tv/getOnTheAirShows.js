@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { ON_THE_AIR_SHOWS, API_KEY } from '../types';
+import { ON_THE_AIR_SHOWS } from '../types';
+import { API_KEY } from '../API_KEY';
 
 const getOnTheAirShows = () => dispatch => {
 	axios

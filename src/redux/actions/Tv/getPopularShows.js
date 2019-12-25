@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { POPULAR_SHOWS, API_KEY } from '../types';
+import { POPULAR_SHOWS } from '../types';
+import { API_KEY } from '../API_KEY';
 
 const getPopularShows = () => dispatch => {
 	axios
