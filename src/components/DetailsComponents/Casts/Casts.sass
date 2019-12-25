@@ -1,0 +1,55 @@
+.Cast-container
+    background: #222831
+    margin: 50px 0
+    padding: 40px
+    border-radius: 10px
+    box-shadow: 10px 10px 10px #00000034
+
+    .title
+        color: white
+        letter-spacing: 3px
+        text-transform: uppercase
+        margin-bottom: 25px
+        font-size: 1.5rem
+
+    .cast-box
+        opacity: .7
+        width: 130px
+        transition: opacity .5s, transform .5s
+        &:hover 
+            opacity: 1
+            transform: scale(1.08)
+
+        img 
+
+            height: 170px
+            border-radius: 10px
+        
+        h1
+            margin-top: 5px
+            font-size: .9rem
+            color: white
+            text-align: center
+
+@media (max-width: 600px)
+    .Cast-container
+        margin: 30px 0
+        padding: 20px
+
+        .title
+            letter-spacing: 2px
+            margin-bottom: 15px
+            font-size: 1.2rem
+
+        .cast-box
+            width: 95px
+            transition: opacity .5s, transform .5s
+
+            img 
+                height: 140px
+            
+            h1
+                margin-top: 5px
+                font-size: .7rem
+                color: white
+                text-align: center
