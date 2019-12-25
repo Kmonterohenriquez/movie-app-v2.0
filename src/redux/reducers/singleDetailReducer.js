@@ -1,4 +1,4 @@
-import { SINGLE_DETAIL } from '../actions/types'
+import { SINGLE_DETAIL } from '../actions/types';
 
 const initialState = {
 	singleDetail: []
@@ -6,9 +6,10 @@ const initialState = {
 
 export default function singleDetailReducer(state = initialState, action) {
 	switch (action.type) {
-        case SINGLE_DETAIL:
-            return { ...state , singleDetail: action.payload};
+		case SINGLE_DETAIL:
+			return { ...state, singleDetail: action.payload };
+
 		default:
-			return state
+			return state;
 	}
 }

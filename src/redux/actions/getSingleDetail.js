@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { SINGLE_DETAIL, API_KEY } from './types';
+import { SINGLE_DETAIL } from './types';
+import {API_KEY} from './API_KEY'
 
 const getSingleDetail = (type, id) => dispatch => {
 	axios

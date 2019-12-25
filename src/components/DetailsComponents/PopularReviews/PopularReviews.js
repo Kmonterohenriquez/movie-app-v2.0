@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './PopularReviews.sass';
 class PopularReviews extends Component {
 	render() {
-		// console.log("test: ", this.props.reviews)
 		return (
 			<div className='Review-container'>
 				<h1>Popular Reviews</h1>

@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { AIRING_TODAY_SHOWS, API_KEY } from '../types';
+import { AIRING_TODAY_SHOWS } from '../types';
+import { API_KEY } from '../API_KEY';
 
 const getAiringTodayShows = () => dispatch => {
 	axios

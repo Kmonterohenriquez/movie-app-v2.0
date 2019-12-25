@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { POPULAR_MOVIES, API_KEY } from '../types';
+import { POPULAR_MOVIES } from '../types';
+import {API_KEY} from '../API_KEY'
 
 const getPopularMovies = () => dispatch => {
 	axios
