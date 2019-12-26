@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo&display=swap')
+$blue: #3498DB
+.Login-container
+    position: relative
+    height: 100vh
+    overflow: hidden
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    .arrow
+        cursor: pointer
+        text-shadow: 5px 10px 5px #00000073
+        color: white
+        font-size: 2.5rem
+
+        position: absolute
+        top: 5%
+        left: 10%
+        z-index: 3
+
+    .ligths-img
+        position: absolute
+        top: -15%
+        left: 0
+        width: 100%
+        height: 120vh
+        object-position: top
+        object-fit: cover
+        z-index: -2
+
+.Login-content
+    padding: 40px
+    background: #eeeeee
+    height: 550px
+    border-radius: 15px
+    box-shadow: 10px 10px 10px #00000017
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    .cinema-img
+        width: 265px
+
+    #Login-title
+        text-align: center
+        margin: 20px 0 30px 0
+        color: $blue
+        letter-spacing: 1px
+        font-weight: 100
+        font-family: 'Baloo', cursive
+    
+    form
+        display: flex
+        flex-direction: column
+
+        input
+            margin-bottom: 15px
+            border-style: none
+            padding: 14px 20px 14px 40px
+            border-radius: 30px
+            background: #fff
+            outline: none
+            border: 1px solid transparent
+            
+            
+            &:focus
+                border: 1px solid $blue
+
+        button
+            width: 100%
+            cursor: pointer
+            margin-bottom: 25px
+            border-style: none
+            padding: 12px
+            border-radius: 30px
+            outline: none
+            background: $blue
+            color: white
+            font-weight: 700
+            letter-spacing: .5px
+            transition: background .5s
+            
+            &:hover
+                background: darken($blue, 10% )
+        p   
+            color: grey
+            text-align: end
+            margin-bottom: 5px
+            a 
+                text-decoration: none
+                color: $blue     
+    
+    .Username-input, .Password-input
+        position: relative
+        
+    i   
+        position: absolute
+        top: 13px
+        left: 15px
+        color: #878787
+
+                
+            
