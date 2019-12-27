@@ -16,7 +16,7 @@ module.exports = {
 		const hash = bcrypt.hashSync(password, salt);
 		let newUser = await db.users.register_user(
 			username,
-			password,
+			hash,
 			email,
 			user_pic
 		);
