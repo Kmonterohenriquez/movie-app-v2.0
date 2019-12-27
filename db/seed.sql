@@ -1,6 +1,7 @@
 create table theater_users(
     user_id serial primary key,
     username VARCHAR(30) not null,
+    email varchar(100),
     password varchar(250) not null,
     user_picture varchar(250)
 );
