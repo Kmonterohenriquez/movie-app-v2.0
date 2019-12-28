@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import cinema from '../../img/cinema.png'
 import lights from '../../img/lights.jpg'
 import './Login.sass'
-const Login = () => {
+import { connect } from 'react-redux'
+import getUser from '../../redux/actions/user/getUser'
+
+import axios from 'axios'
+const Login = (props) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		console.log('Email: ', email);
-		console.log('Password: ', password);
+		axios.post('/auth/login', {email, password})
+        .then(res => {
+            props.getUser(res.data)
+        })
 	};
 	return (
 		<div className='Login-container'>
-			<img className='ligths-img' src={lights} alt='lights' />
+			<img className='lights-img' src={lights} alt='lights' />
 			<Link to='/'>
 				<i className='arrow fas fa-chevron-left'></i>
 			</Link>
@@ -31,7 +37,7 @@ const Login = () => {
 						<input onChange={(e)=> setPassword(e.target.value)} type='password' placeholder='Password' />
 					</div>
 					<button type='submit'>LogIn</button>
-					<p>Not a member? <Link to='/signup'>Register</Link></p>
+					<p>Not a member? <Link to='/register'>Register</Link></p>
 					<p><Link to ='#'>Forgot Password?</Link></p>
 				</form>
 			</div>
@@ -39,4 +45,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default withRouter(connect(null, { getUser})(Login));

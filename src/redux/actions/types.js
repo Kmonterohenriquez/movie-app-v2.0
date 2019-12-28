@@ -1,3 +1,7 @@
+// USER
+export const GET_USER = 'GET_USER';
+export const NEW_USER = 'NEW_USER';
+
 // ITEM
 export const ITEM_REVIEWS = 'ITEM_REVIEWS';
 export const ITEM_TRAILERS = 'ITEM_TRAILERS';
@@ -21,4 +25,3 @@ export const TOP_RATED_SHOWS = 'TOP_RATED_SHOWS';
 
 // SINGLE MOVIE or TV SHOW DETAIL
 export const SINGLE_DETAIL = 'SINGLE_DETAIL';
-
