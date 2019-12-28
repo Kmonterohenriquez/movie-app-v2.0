@@ -1,6 +1,6 @@
 INSERT INTO theater_users(
     username,
-    passsword,
+    password,
     email,
     user_picture
 )

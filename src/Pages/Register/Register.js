@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 import axios from 'axios'
-import getUser from '../../redux/actions/user/'
+import getUser from '../../redux/actions/user/getUser'
 import profile_placeholder from '../../img/profile-placeholder.jpg'
 
 const Register = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
-	const [user_pic, setUserPic] = userState(profile_placeholder);
+	// const [user_pic, setUserPic] = useState(profile_placeholder);
 
 	const handleSubmit = e => {
-        e.preventDefault();
+		e.preventDefault();
+		let user_pic = profile_placeholder;
         // console.log(username, email, password)
         axios.post('/auth/register',{username, password, email , user_pic})
         .then(res => props.getUser(res.data))
@@ -34,4 +35,4 @@ const Register = (props) => {
 	);
 };
 
-export default withRouter(connect(null, {createUser})(Register));
+export default withRouter(connect(null, {getUser})(Register));
