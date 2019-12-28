@@ -4,7 +4,7 @@ import Summary from '../components/DetailsComponents/Summary/Summary';
 import PopularReviews from '../components/DetailsComponents/PopularReviews/PopularReviews';
 import PostReview from '../components/DetailsComponents/PostReview/PostReview';
 import Trailers from '../components/DetailsComponents/Trailers/Trailers';
-import Casts from '../components/DetailsComponents/Casts/Casts'
+import Casts from '../components/DetailsComponents/Casts/Casts';
 // REDUX
 import { connect } from 'react-redux';
 import getSingleDetail from '../redux/actions/getSingleDetail';

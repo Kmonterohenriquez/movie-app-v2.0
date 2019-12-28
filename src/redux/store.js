@@ -17,6 +17,10 @@ import setItemTypeReducer from './reducers/setItemTypeReducer';
 import itemReviewReducer from './reducers/itemReviewReducer';
 import itemTrailersReducer from './reducers/itemTrailersReducer';
 import itemCastsReducer from './reducers/itemCastsReducer';
+// USER 
+import userReducer from './reducers/userReducer'
+import createUserReducer from './reducers/createUserReducer'
+
 
 const rootReducer = combineReducers({
 	getPopularMovies,
@@ -31,7 +35,9 @@ const rootReducer = combineReducers({
 	setItemTypeReducer,
 	itemReviewReducer,
 	itemTrailersReducer,
-	itemCastsReducer
+	itemCastsReducer,
+	userReducer,
+	createUserReducer
 });
 
 const middleware = [thunk];
