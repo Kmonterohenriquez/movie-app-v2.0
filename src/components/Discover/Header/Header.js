@@ -15,18 +15,20 @@ class Header extends Component {
 		};
 	}
 	handleSubmit=(e)=> {
+		console.log('search btn pressed')
         e.preventDefault();
         const{sortBy, voteAverage, withPeople, withGenres, withKeywords, year} = this.state;
         this.props.getFilterInfo(sortBy, voteAverage, withPeople, withGenres, withKeywords, year);
 	}
 
 	handleChange=(e)=> {
-		if (e.target.name === 'sortBy') this.setState({ sortBy: e.target.value });
-        if (e.target.name === 'voteAverage') this.setState({ voteAverage: e.target.value });
-        if (e.target.name === 'withPeople') this.setState({ withPeople: e.target.value });
-        if (e.target.name === 'withGenres') this.setState({ withGenres: e.target.value });
-        if (e.target.name === 'withKeywords') this.setState({ withKeywords: e.target.value });
-        if (e.target.name === 'year') this.setState({ year: e.target.value });
+		// if (e.target.name === 'sortBy') this.setState({ sortBy: e.target.value });
+        // if (e.target.name === 'voteAverage') this.setState({ voteAverage: e.target.value });
+        // if (e.target.name === 'withPeople') this.setState({ withPeople: e.target.value });
+        // if (e.target.name === 'withGenres') this.setState({ withGenres: e.target.value });
+        // if (e.target.name === 'withKeywords') this.setState({ withKeywords: e.target.value });
+		// if (e.target.name === 'year') this.setState({ year: e.target.value });
+		this.setState({[e.target.name]: e.target.value})
 	}
 	render() {
 		return (
@@ -62,7 +64,7 @@ class Header extends Component {
 						<input name='year' onChange={this.handleChange} type='numeric' placeholder='Enter Year' />
 					</div>
 				{/* </Fade> */}
-					<button> Search </button>
+					<button type='submit'> Search </button>
 				</form>
 			</div>
 		);

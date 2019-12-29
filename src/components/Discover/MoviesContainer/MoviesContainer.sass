@@ -1,0 +1,36 @@
+.MovieContainer
+    padding-bottom: 100px
+
+.grid-search
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+    justify-items: center
+    grid-gap: 30px 20px
+
+a
+    text-decoration: none
+
+.Single-movie
+    color: white
+    text-align: center
+    transition: transform .5s, opacity .5s
+    opacity: .6
+
+    &:hover
+        transform: scale(1.07)
+        opacity: 1
+
+    img
+        border-radius: 10px
+        height: 180px
+
+    h1
+        margin-top: 10px
+        font-size: 1rem
+
+    p
+        margin-top: 5px
+
+        i
+            color: #D1B80F
+            margin-right: 7px
