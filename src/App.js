@@ -6,9 +6,10 @@ import { withRouter } from 'react-router-dom';
 
 function App(props) {
 	const currLocation = props.location.pathname;
+	
 	return (
 		<div className='App'>
-			{currLocation === '/login' || currLocation === '/signup' || true === currLocation.includes("/detail")? (
+			{currLocation === '/login' || currLocation === '/signup' || currLocation === '/register' || true === currLocation.includes("/detail") ? (
 				<>{router}</>
 			) : (
 				<>

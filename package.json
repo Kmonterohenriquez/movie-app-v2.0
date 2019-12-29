@@ -19,12 +19,14 @@
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
 		"react-redux": "^7.1.3",
+		"react-reveal": "^1.2.2",
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "3.3.0",
 		"redux": "^4.0.4",
 		"redux-promise-middleware": "^6.1.2",
 		"redux-thunk": "^2.3.0",
-		"swiper": "^5.2.1"
+		"swiper": "^5.2.1",
+		"wowjs": "^1.1.3"
 	},
 	"scripts": {
 		"start": " react-scripts start",

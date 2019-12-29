@@ -24,6 +24,7 @@ const Register = props => {
 
 			.catch(res => console.log(res));
 	};
+	console.log(props.location)
 	return (
 		<div className='Register'>
 			<h1>Sign Up</h1>
