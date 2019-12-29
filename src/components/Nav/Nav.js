@@ -14,7 +14,7 @@ const Nav =()=>{
                 <ul>
                     <Link to='/'><li><i className="fas fa-home"></i></li></Link>
                     <Link to='/login'><li><i className="fas fa-user-circle"></i></li></Link>
-                    <Link to='/dashboard'><li><i className="fas fa-search"></i></li></Link>
+                    <Link to='/discover'><li><i className="fas fa-search"></i></li></Link>
                 </ul>
             </nav>
         </header>

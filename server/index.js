@@ -62,7 +62,7 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 //auth endpoints
-// app.post('/auth/login', authCtrl.login);
+app.post('/auth/login', authCtrl.login);
 app.post('/auth/register', authCtrl.register);
 // app.post('/auth/logout', authCtrl.logout);
 
