@@ -6,7 +6,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login/Login';
 import Details from './Pages/Details';
 import Signup from './Pages/Register/Register';
-import Discover from './Pages/Discover'
+import Discover from './Pages/Discover/Discover'
 
 export default (
 	<Switch>
