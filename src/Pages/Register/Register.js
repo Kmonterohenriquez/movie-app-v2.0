@@ -21,8 +21,8 @@ const Register = props => {
 				props.getUser(res.data);
 				props.history.push('/login');
 			})
-
-			.catch(res => console.log(res));
+			
+			// .catch(res => console.log(res));
 	};
 	console.log(props.location)
 	return (

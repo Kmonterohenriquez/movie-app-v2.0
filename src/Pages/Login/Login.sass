@@ -39,6 +39,7 @@ $blue: #3498DB
     flex-direction: column
     align-items: center
     justify-content: center
+    width: 280px
 
     .cinema-img
         width: 265px
@@ -54,19 +55,22 @@ $blue: #3498DB
     form
         display: flex
         flex-direction: column
+        width: 100%
 
         input
             margin-bottom: 15px
             border-style: none
+            box-sizing: border-box
             padding: 14px 20px 14px 40px
             border-radius: 30px
             background: #fff
             outline: none
             border: 1px solid transparent
+            width: 100%
             
             
             &:focus
-                border: 1px solid $blue
+                border: 1px solid lighten( $blue, 10% )
 
         button
             width: 100%

@@ -4,7 +4,6 @@ class PopularReviews extends Component {
 	render() {
 		return (
 			<div className='Review-container'>
-				<h1>Popular Reviews</h1>
 				{this.props.reviews.length !== 0 ? (
 					<div>
 						{this.props.reviews.map((review, key) => (

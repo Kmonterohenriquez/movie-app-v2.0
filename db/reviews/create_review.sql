@@ -2,10 +2,12 @@ INSERT INTO reviews (
     movie_id,
     user_id,
     review_content,
-    movie_title
+    movie_title,
+    item_type
 ) VALUES (
     $1,
     $2,
     $3,
-    $4
+    $4,
+    $5
 );
