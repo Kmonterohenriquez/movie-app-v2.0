@@ -1,7 +1,11 @@
 import { GET_USER } from '../actions/types';
 
 const initialState = {
-	user: {}
+	user: {
+		// username: '',
+		email: 'hola', 
+		password: 'hola' 
+	}
 };
 
 export default function userReducer(state = initialState, action) {

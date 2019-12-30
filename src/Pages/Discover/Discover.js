@@ -39,7 +39,7 @@ class Discover extends Component {
 		if (year) this.setState({ year });
 	};
 
-	getMovies() {
+getMovies() {
 		const key_API = 'dd36eee247f144ba66fce886e88c3fa7';
 		let { page } = this.state;
 		axios

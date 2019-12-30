@@ -1,11 +1,23 @@
 module.exports = {
-	createReview: (req, res) => {
-		const { movie_id, user_id, review_content, movie_title } = req.body;
+	createReview: async (req, res) => {
+		const {
+			movie_id,
+			user_id,
+			review_content,
+			movie_title,
+			item_type
+		} = req.body;
 		const db = req.app.get('db');
-		db.reviews
-			.create_review(movie_id, user_id, review_content, movie_title)
-			.then(res => res.sendStatus(200))
-			.catch(err => res.status(500).send(err));
+		await db.reviews.create_review(
+			movie_id,
+			user_id,
+			review_content,
+			movie_title,
+			item_type
+		);
+		// .then(res => res.sendStatus(200))
+		// .catch(err => res.status(500).send(err));
+		res.sendStatus(200);
 	},
 	getAllReviews: (req, res) => {
 		const db = req.app.get('db');

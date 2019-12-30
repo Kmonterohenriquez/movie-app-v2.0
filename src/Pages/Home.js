@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 // COMPONENTS
 import Section from '../components/Section/Section.js';
 // REDUX
@@ -27,7 +26,6 @@ class Home extends Component {
 	componentDidMount() {
 		this.handleMovies();
 		this.handleTv();
-		
 	}
 
 	categoryToggle = value => {
@@ -80,7 +78,6 @@ class Home extends Component {
 					Tv Shows
 				</button>
 				{this.state.categoryToggle ? (
-					
 					<div className='movies'>
 						<Section title='Upcoming' movieData={upcoming} type='movie' />
 						<Section title='Now Playing' movieData={nowPlaying} type='movie' />
