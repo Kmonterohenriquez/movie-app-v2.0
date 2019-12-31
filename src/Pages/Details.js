@@ -18,13 +18,16 @@ import getUser from '../redux/actions/user/getUser';
 
 import axios from 'axios';
 class Details extends Component {
-	state = {};
+	state = {
+		type: this.props.itemType.itemType
+	};
 
 	componentDidMount() {
 		const id = this.props.match.params.id;
+		// const type = this.state.type;
 		this.props.getSingleDetail('movie', id);
 		this.props.getItemReviews('movie', id);
-		// this.props.setItemType('tv');
+		// this.props.setItem'movie'('tv');
 		this.props.getItemTrailers('movie', id);
 		this.props.getItemCasts('movie', id);
 		// this.props.getUser()
@@ -40,8 +43,10 @@ class Details extends Component {
 		const reviews = this.props.itemReviews.itemReviews;
 		const trailers = this.props.itemTrailers.itemTrailers;
 		const casts = this.props.itemCasts.itemCasts;
+		// const type = this.props.itemType.itemType;
+		
 		// const user = this.props.getUser.user
-		// console.log('user:', this.props.user)
+		
 
 		return (
 			<div className='Details' style={{ background: '#2D132C', paddingBottom: '50px' }}>
@@ -58,7 +63,7 @@ class Details extends Component {
 					<Casts cast={casts} />
 					<Trailers trailers={trailers} />
 					<PostReview type='movie' title={singleDetail.title} id={this.props.match.params.id} />
-					<UserReviews />
+					<UserReviews id={this.props.match.params.id} />
 					<PopularReviews reviews={reviews} />
 				</div>
 			</div>
@@ -67,14 +72,14 @@ class Details extends Component {
 }
 
 const mapStateToProps = state => {
-	// console.log(state)
 	return {
 		singleDetail: state.getSingleDetail,
-		itemType: state.setItemType,
+		// itemType: state.setItemType,
 		itemReviews: state.itemReviewReducer,
 		itemTrailers: state.itemTrailersReducer,
 		itemCasts: state.itemCastsReducer,
-		user: state.userReducer
+		user: state.userReducer,
+		itemType: state.setItemTypeReducer
 	};
 };
 
@@ -84,5 +89,5 @@ export default connect(mapStateToProps, {
 	getItemReviews,
 	getItemTrailers,
 	getItemCasts,
-	getUser
+	getUser,
 })(Details);

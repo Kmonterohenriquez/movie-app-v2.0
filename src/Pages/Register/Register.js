@@ -14,7 +14,6 @@ const Register = props => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		let user_pic = profile_placeholder;
-		// console.log(username, email, password)
 		axios
 			.post('/auth/register', { username, password, email, user_pic })
 			.then(res => {
@@ -22,9 +21,8 @@ const Register = props => {
 				props.history.push('/login');
 			})
 			
-			// .catch(res => console.log(res));
 	};
-	console.log(props.location)
+	// console.log(props.location)
 	return (
 		<div className='Register'>
 			<h1>Sign Up</h1>

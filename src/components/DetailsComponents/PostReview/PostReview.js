@@ -9,14 +9,12 @@ class PostReview extends Component {
 	state = {
 		reviewContent: ''
 	};
-	componentDidMount() {
-		// this.postReview()
-	}
-	postReview =  e => {
+
+	postReview = e => {
 		e.preventDefault();
 		const { id, title, type } = this.props;
-		 axios
-			.post('/review/create', {
+		axios
+			.post('/api/review', {
 				movie_id: id,
 				user_id: 8,
 				review_content: this.state.reviewContent,
@@ -25,6 +23,7 @@ class PostReview extends Component {
 			})
 			.then(console.log('Review Posted'))
 			.catch(err => console.log(err));
+		this.setState({ reviewContent: '' });
 	};
 
 	handleChange = e => {
@@ -32,16 +31,17 @@ class PostReview extends Component {
 	};
 
 	render() {
-		console.log('RESULT:', this.props.type);
+		// console.log('RESULT:', this.props.type);
 		return (
 			<div className='PostReview '>
 				<h1 className='PostReview-title'>Popular Reviews</h1>
-				<form onSubmit={ e => this.postReview(e)} className='PostReview-content'>
+				<form onSubmit={e => this.postReview(e)} className='PostReview-content'>
 					<img src={profileImg} alt='#' />
 					<input
-						onChange={ e => this.handleChange(e)}
+						onChange={e => this.handleChange(e)}
 						name='review'
 						type='text'
+						value={this.state.reviewContent}
 						placeholder='Write a comment...'
 						required
 					/>

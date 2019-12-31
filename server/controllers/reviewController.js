@@ -15,23 +15,28 @@ module.exports = {
 			movie_title,
 			item_type
 		);
-		// .then(res => res.sendStatus(200))
-		// .catch(err => res.status(500).send(err));
 		res.sendStatus(200);
 	},
-	getAllReviews: (req, res) => {
+	getMovieReviews:  (req, res) => {
+		const { movie_id } = req.params;
 		const db = req.app.get('db');
-		db.reviews
-			.get_all_reviews()
+	 db.reviews
+			.get_movie_reviews(movie_id)
 			.then(reviews => res.status(200).send(reviews))
 			.catch(err => res.status(500).send(err));
 	},
-	getUserReviews: (req, res) => {
+	getUserReviews: async (req, res) => {
 		const db = req.app.get('db');
 		const { user_id } = req.body;
-		db.reviews
+		await db.reviews
 			.get_user_reviews(user_id)
 			.then(reviews => res.status(200).send(reviews))
 			.catch(err => res.status(500).send(err));
 	}
+	// deleteReview: (req, res) => {
+	// 	const { review_id } = req.params;
+	// 	const db = req.app.get('db');
+	// 	db.reviews.delete_review(review_id)
+	// 	.then(res.sendStatus(200));
+	// }
 };

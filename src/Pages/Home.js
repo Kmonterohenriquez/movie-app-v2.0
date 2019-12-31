@@ -27,6 +27,11 @@ class Home extends Component {
 		this.handleMovies();
 		this.handleTv();
 	}
+	// componentDidUpdate(prevProps, prevState) {
+	// 	if (prevProps.data !== this.props.itemType.itemType) {
+
+	// 	}
+	// }
 
 	categoryToggle = value => {
 		if (value === true) {
@@ -57,6 +62,8 @@ class Home extends Component {
 			onTheAirShows = this.props.onTheAirShows.onTheAirShows,
 			popularShows = this.props.popularShows.popularShows,
 			topRatedShows = this.props.topRatedShows.topRatedShows;
+			// itemType = this.props.itemType.itemType;
+			// console.log('holaaaaaaaaaaaaaa', itemType)
 		// INVOKING CAROUSEL
 		carousel();
 		return (
@@ -86,11 +93,7 @@ class Home extends Component {
 					</div>
 				) : (
 					<div className='tv'>
-						<Section
-							title='Airing Today'
-							movieData={airingTodayShows}
-							type='tv'
-						/>
+						<Section title='Airing Today' movieData={airingTodayShows} type='tv' />
 						<Section title='Popular' movieData={popularShows} type='tv' />
 						<Section title='On the Air' movieData={onTheAirShows} type='tv' />
 						<Section title='Top Rated' movieData={topRatedShows} type='tv' />
@@ -112,7 +115,7 @@ const mapStateToProps = state => ({
 	popularShows: state.getPopularShows,
 	topRatedShows: state.getTopRatedShows,
 	//OTHERS
-	itemType: state.setItemType
+	itemType: state.setItemTypeReducer
 });
 
 // const mapDispatcherToProps = dispatch => ({
