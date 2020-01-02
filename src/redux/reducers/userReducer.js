@@ -3,6 +3,7 @@ import { GET_USER } from '../actions/types';
 const initialState = {
 	user: {
 		
+		
 	}
 };
 

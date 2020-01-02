@@ -23,14 +23,33 @@
             width:  40px
             object-fit: cover
             border-radius: 50%
+        .input-container
+            display: flex
+            flex-direction: column
+            width: 70%
+            // background: red
+            max-width: 900px
+            position: relative
 
-        input 
-            padding: 10px 15px
-            border-radius: 20px
-            width: 60%
-            margin: 0 15px
-            border-style: none
-            outline: none
+            input
+                box-sizing: border-box
+                padding: 10px 15px
+                border-radius: 20px
+                width: 100%
+                border-style: none
+                outline: none
+                margin: 
+            p 
+                top: 23px
+                left: 10px
+                position: absolute
+                text-align: left
+                width: 100%
+                font-size: .9rem
+
+            .alert-error 
+                color: red
+                font-weight: 600
         
 
 @media (max-width: 600px)

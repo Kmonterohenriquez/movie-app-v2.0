@@ -6,7 +6,8 @@ import Home from './Pages/Home';
 import Login from './Pages/Login/Login';
 import Details from './Pages/Details';
 import Signup from './Pages/Register/Register';
-import Discover from './Pages/Discover/Discover'
+import Discover from './Pages/Discover/Discover';
+import SearchResult from './components/SearchResult/SearchResult';
 
 export default (
 	<Switch>
@@ -15,5 +16,6 @@ export default (
 		<Route component={Signup} exact path='/register' />
 		<Route component={Discover} exact path='/discover' />
 		<Route component={Details} path='/details/:id' />
+		<Route component={SearchResult} path='/search_result' />
 	</Switch>
 );
