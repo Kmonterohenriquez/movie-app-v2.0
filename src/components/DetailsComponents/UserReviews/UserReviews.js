@@ -5,50 +5,84 @@ import axios from 'axios';
 
 class UserReviews extends Component {
 	state = {
-		reviews: []
-	};
-	componentDidMount() {
-		this.getReviews();
-	}
-
-	componentDidUpdate(prevProps, prevState) {
-		if (prevState.reviews !== prevState) {
-			this.getReviews();
-		}
-	}
-
-	getReviews = () => {
-		const movie_id = this.props.id;
-		axios
-			.get(`/api/review/${movie_id}`)
-			.then(res => this.setState({ reviews: res.data }));
+		editToggle: false,
+		editingReview: 0
 	};
 
-	// deleteReview = (review_id) => {
-		
-	// 	axios.delete(`/api/review/${review_id}`).catch(err => console.log(err));
-	// };
+	deleteReview = review_id => {
+		axios.delete(`/api/review/${review_id}`).catch(err => console.log(err));
+		this.props.getReviews();
+	};
+	editToggle = review_id => {
+		this.setState({ editToggle: !this.state.editToggle });
+		this.setState({ editingReview: review_id });
+	};
+	saveChange = review_id => {
+		axios.put(`/api/review/${review_id}`).catch(err => console.log(err));
+		this.setState({ editToggle: !this.state.editToggle });
+		this.props.getReviews();
+	};
 	render() {
+		// console.log(this.state.reviews)
+		console.log('reviews', this.props.reviews);
+		// const { user } = this.props;
 		return (
 			<div>
-				{this.state.reviews.reverse().map(curr => (
-					<div className='Review-container'>
-						{/* <h1>Popular Reviews</h1> */}
-						<div>
-							<div className='Review'>
-								<div className='Review-user-info'>
-									<i className='User-icon fas fa-user-circle'></i>
-									<p className='Review-author'>Kevin Montero{curr.user_id}</p>
+				{this.props.reviews.reverse().map(curr => (
+					<div key={curr.review_id}>
+						{this.state.editToggle &&
+						curr.review_id === this.state.editingReview ? (
+							<>
+								<div className='Review-container'>
+									<div className='Review'>
+										<div className='Review-user-info'>
+											<i className='User-icon fas fa-user-circle'></i>
+											<p className='Review-author'>
+												{curr.username}
+											</p>
+										</div>
+										<textarea cols='30' rows='10'>
+											{curr.review_content}
+										</textarea>
+										<div className='Review-btns'>
+											<button
+												className='edit-btn'
+												onClick={() => this.saveChange(curr.review_id)}
+											>
+												Save
+											</button>
+											<button className='delete-btn' onClick={this.editToggle}>
+												Cancel
+											</button>
+										</div>
+									</div>
 								</div>
-								<p className='Review-content'>{curr.review_content}</p>
-								<div className='Review-btns'>
-									<button className='edit-btn'>Edit</button>
-									<button className='delete-btn' >
-										Delete
-									</button>
+							</>
+						) : (
+							<div className='Review-container'>
+								<div className='Review'>
+									<div className='Review-user-info'>
+										<i className='User-icon fas fa-user-circle'></i>
+						<p className='Review-author'>{curr.username}</p>
+									</div>
+									<p className='Review-content'>{curr.review_content}</p>
+									<div className='Review-btns'>
+										<button
+											className='edit-btn'
+											onClick={() => this.editToggle(curr.review_id)}
+										>
+											Edit
+										</button>
+										<button
+											className='delete-btn'
+											onClick={() => this.deleteReview(curr.review_id)}
+										>
+											Delete
+										</button>
+									</div>
 								</div>
 							</div>
-						</div>
+						)}
 					</div>
 				))}
 			</div>

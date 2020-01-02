@@ -22,13 +22,13 @@ class Header extends Component {
 	}
 
 	handleChange=(e)=> {
-		// if (e.target.name === 'sortBy') this.setState({ sortBy: e.target.value });
-        // if (e.target.name === 'voteAverage') this.setState({ voteAverage: e.target.value });
-        // if (e.target.name === 'withPeople') this.setState({ withPeople: e.target.value });
-        // if (e.target.name === 'withGenres') this.setState({ withGenres: e.target.value });
-        // if (e.target.name === 'withKeywords') this.setState({ withKeywords: e.target.value });
-		// if (e.target.name === 'year') this.setState({ year: e.target.value });
-		this.setState({[e.target.name]: e.target.value})
+		if (e.target.name === 'sortBy') this.setState({ sortBy: e.target.value });
+        if (e.target.name === 'voteAverage') this.setState({ voteAverage: e.target.value });
+        if (e.target.name === 'withPeople') this.setState({ withPeople: e.target.value });
+        if (e.target.name === 'withGenres') this.setState({ withGenres: e.target.value });
+        if (e.target.name === 'withKeywords') this.setState({ withKeywords: e.target.value });
+		if (e.target.name === 'year') this.setState({ year: e.target.value });
+		// this.setState({[e.target.name]: e.target.value})
 	}
 	render() {
 		return (

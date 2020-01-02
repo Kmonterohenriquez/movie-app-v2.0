@@ -18,7 +18,6 @@
         &-user-info
             display: flex
             align-items: center
-            margin-bottom: 20px
 
             .User-icon
                 font-size: 35px
@@ -32,12 +31,10 @@
 
         &-content
             color: #BAB8C1
-            padding: 0 50px
             line-height: 1.5rem
             display: block
             height: 8ch
             overflow: hidden
-            margin-bottom: 18px
 
         a
             margin-left: 50px
@@ -51,17 +48,31 @@
                 margin-left: 5px
 
         &-btns
-            position: absolute
-            right: 5%
-            bottom: 35px
+            margin-top: 25px
 
             .edit-btn
                 background: #e3e3e3
                 color: black
                 margin-right: 20px
                 transition: background .5s 
+                
                 &:hover 
                     background: darken(#e3e3e3, 25% )
+    textarea
+        background: darken(#222831, 4%)
+        // margin-left: 45px
+        
+        font-size: 1.1rem
+        color: white
+        border-radius: 7px
+        padding: 15px
+        width: 100%
+        max-width: 100%
+        min-width: 100%
+        min-height: 100%
+        height: 90px
+        max-height: 90px
+        border-style: none
             
 @media (max-width: 600px)
     .Review-container
