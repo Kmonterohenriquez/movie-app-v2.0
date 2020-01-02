@@ -23,7 +23,6 @@ class App extends Component {
 		return (
 			<div className='App'>
 				{currLocation === '/login' ||
-				currLocation === '/signup' ||
 				currLocation === '/register' ||
 				true === currLocation.includes('/detail') ? (
 					<>{router}</>

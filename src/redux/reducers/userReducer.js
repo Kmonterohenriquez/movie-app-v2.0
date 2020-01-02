@@ -2,9 +2,7 @@ import { GET_USER } from '../actions/types';
 
 const initialState = {
 	user: {
-		// username: '',
-		email: 'hola', 
-		password: 'hola' 
+		
 	}
 };
 
