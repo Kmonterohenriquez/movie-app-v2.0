@@ -5,13 +5,10 @@ import {connect} from 'react-redux'
 import getUser from '../../redux/actions/user/getUser';
 
 class  Nav extends Component {
-    componentDidMount(){
-        this.props.getUser()
-    }
     render(){
-   
+
     console.log('GET USER INFO FROM NAV:', this.props.user.user)
-    const result = this.props.user.user? 'true': 'false';
+    const result = this.props.user.user.email? 'true': 'false';
     console.log(result)
     return(
         <header className="Nav">
@@ -23,13 +20,12 @@ class  Nav extends Component {
             <nav>
                 <ul>
                     <Link to='/'><li><i className="fas fa-home"></i></li></Link>
-                    {this.props.user.user? <p>holaaaaaaaaaaaaaaa</p>:
+                    {this.props.user.user.email ? <Link to='#'><li><i className="fas fa-sign-out-alt"></i></li></Link>:
                         <Link to='/login'><li><i className="fas fa-user-circle"></i></li></Link>
                     }
                     <Link to='/discover'><li><i className="fas fa-search"></i></li></Link>
                 </ul>
             </nav>
-                    <p style={{ color: 'white', fontSize: '5rem'}}>{result.email}</p>
         </header>
     )
                 }
