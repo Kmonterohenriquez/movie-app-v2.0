@@ -21,6 +21,7 @@ const Login = props => {
 		});
 		// props.getUser({email, password)
 	};
+	console.log('PROPS', props)
 	return (
 		<div className='Login-container'>
 			<img className='lights-img wow fadeIn' data-wow-duration='1s' data-wow-delay='.3s' src={lights} alt='lights' />
@@ -43,6 +44,7 @@ const Login = props => {
 							onChange={e => setEmail(e.target.value)}
 							type='email'
 							placeholder='Email'
+							required
 						/>
 					</div>
 					<div className='Password-input'>
@@ -51,6 +53,7 @@ const Login = props => {
 							onChange={e => setPassword(e.target.value)}
 							type='password'
 							placeholder='Password'
+							required
 						/>
 					</div>
 					<button type='submit'>LogIn</button>

@@ -20,9 +20,11 @@ const Register = props => {
 				props.getUser(res.data);
 				props.history.push('/login');
 			})
+			.catch(err=> console.log(err.response.data.error))
 			
 	};
-	// console.log(props.location)
+	console.log('sign up btn hit')
+
 	return (
 		<div className='Register'>
 			<h1>Sign Up</h1>

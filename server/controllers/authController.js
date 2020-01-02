@@ -9,9 +9,12 @@ module.exports = {
 		let user = await db.users.check_user(email);
 		user = user[0];
 
-		if (user) {
-			return res.status(200).send('User already exists.');
-		}
+		if (user.email) {
+			return res.status(500).send({ error: 'Email is already in use.' })
+		} 
+		// else if(user.password){
+
+		// }
 		const salt = bcrypt.genSaltSync(10);
 		const hash = bcrypt.hashSync(password, salt);
 		let newUser = await db.users.register_user(username, hash, email, user_pic);
