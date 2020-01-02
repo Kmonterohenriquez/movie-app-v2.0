@@ -19,7 +19,8 @@ import getUser from '../redux/actions/user/getUser';
 import axios from 'axios';
 class Details extends Component {
 	state = {
-		type: this.props.itemType.itemType
+		type: this.props.itemType.itemType,
+		reviews: []
 	};
 
 	componentDidMount() {
@@ -30,9 +31,16 @@ class Details extends Component {
 		// this.props.setItem'movie'('tv');
 		this.props.getItemTrailers('movie', id);
 		this.props.getItemCasts('movie', id);
-		// this.props.getUser()
+		this.props.getUser()
 		this.getUserInfo();
+		this.getReviews();
 	}
+	getReviews = () => {
+		const movie_id = this.props.match.params.id;
+		axios
+			.get(`/api/review/${movie_id}`)
+			.then(res => this.setState({ reviews: res.data }));
+	};
 	getUserInfo() {
 		axios.get('/auth/userData').then(res => {
 			this.props.getUser(res.data.user);
@@ -45,9 +53,8 @@ class Details extends Component {
 		const casts = this.props.itemCasts.itemCasts;
 		// const type = this.props.itemType.itemType;
 		
-		// const user = this.props.getUser.user
-		
-
+		const user = this.props.user.user
+		console.log('USER INFO: ', user)
 		return (
 			<div className='Details' style={{ background: '#2D132C', paddingBottom: '50px' }}>
 				<Header
@@ -62,8 +69,8 @@ class Details extends Component {
 					<Summary overview={singleDetail.overview} />
 					<Casts cast={casts} />
 					<Trailers trailers={trailers} />
-					<PostReview type='movie' title={singleDetail.title} id={this.props.match.params.id} />
-					<UserReviews id={this.props.match.params.id} />
+					<PostReview user={user} getReviews={this.getReviews} type='movie' title={singleDetail.title} id={this.props.match.params.id} />
+					<UserReviews user={user} getReviews={this.getReviews} reviews={this.state.reviews} id={this.props.match.params.id} />
 					<PopularReviews reviews={reviews} />
 				</div>
 			</div>

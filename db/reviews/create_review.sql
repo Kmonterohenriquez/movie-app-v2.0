@@ -11,3 +11,5 @@ INSERT INTO reviews (
     $4,
     $5
 );
+
+select * from reviews where movie_id = $1;

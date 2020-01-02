@@ -17,6 +17,9 @@ export default function castCarousel() {
 		observer: true,
 		initialSlide: 1,
 		breakpoints: {
+			1200: {
+				slidesPerView: 8
+			},
 			1150: {
 				slidesPerView: 6
 			},

@@ -1,4 +1,11 @@
-select * 
-from reviews
-where movie_id = $1;
--- returning *;
+select 
+    review_id,
+    movie_id,
+    r.user_id,
+    item_type,
+    u.username,
+    movie_title,
+    review_content
+from reviews r
+join theater_users u on r.user_id = u.user_id
+where r.movie_id = $1;

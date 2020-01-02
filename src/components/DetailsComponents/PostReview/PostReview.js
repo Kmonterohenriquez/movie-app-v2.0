@@ -10,20 +10,19 @@ class PostReview extends Component {
 		reviewContent: ''
 	};
 
-	postReview = e => {
+	postReview = async e => {
 		e.preventDefault();
 		const { id, title, type } = this.props;
-		axios
-			.post('/api/review', {
-				movie_id: id,
-				user_id: 8,
-				review_content: this.state.reviewContent,
-				movie_title: title,
-				itemT_type: type
-			})
-			.then(console.log('Review Posted'))
-			.catch(err => console.log(err));
+		await axios.post('/api/review', {
+			movie_id: id,
+			user_id: this.props.user.user_id,
+			review_content: this.state.reviewContent,
+			movie_title: title,
+			itemT_type: type
+		});
+
 		this.setState({ reviewContent: '' });
+		this.props.getReviews();
 	};
 
 	handleChange = e => {

@@ -31,7 +31,8 @@ app.get('/auth/userData', authCtrl.userData);
 
 app.post('/api/review', reviewCtrl.createReview);
 app.get('/api/review/:movie_id', reviewCtrl.getMovieReviews);
-// app.delete('/api/review/:review_id', reviewCtrl.deleteReview);
+app.delete('/api/review/:review_id', reviewCtrl.deleteReview);
+// app.put('/api/review/:review_id', reviewCtrl.editReview);
 // app.get('/api/review/:id', reviewCtrl.getUserReviews);
 const port = SERVER_PORT ;
 app.listen(port, () => console.log(`Server running on port ${port}`));
