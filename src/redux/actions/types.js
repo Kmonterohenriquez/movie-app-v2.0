@@ -25,3 +25,7 @@ export const TOP_RATED_SHOWS = 'TOP_RATED_SHOWS';
 
 // SINGLE MOVIE or TV SHOW DETAIL
 export const SINGLE_DETAIL = 'SINGLE_DETAIL';
+
+//SEARCH
+export const SEARCH_TV = 'SEARCH_TV';
+export const SEARCH_MOVIE = 'SEARCH_MOVIE';

@@ -7,7 +7,7 @@ class MoviesContainer extends Component {
 	render() {
 		return (
 			<div className='MovieContainer container grid-search'>
-				{this.props.movies.map(movie =>
+				{this.props.movies.map( movie =>
 					movie.poster_path ? 
 						<Fade bottom delay={800} duration={1300} key={movie.id}>
 							<Link to={`/details/${movie.id}`} >
