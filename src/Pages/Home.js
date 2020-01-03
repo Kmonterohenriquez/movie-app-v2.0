@@ -17,6 +17,8 @@ import getTopRatedShows from '../redux/actions/Tv/getTopRatedShows';
 import setItemType from '../redux/actions/setItemType';
 //SWIPER
 import carousel from '../components/carousel/carousel';
+
+import Loading from '../components/Loading/Loading'
 class Home extends Component {
 	// const [categoryToggle, setCategoryToggle] = useState(true);
 	state = {
@@ -68,6 +70,7 @@ class Home extends Component {
 		carousel();
 		return (
 			<div>
+				{/* <Loading /> */}
 				<button
 					onClick={() => {
 						this.categoryToggle(true);

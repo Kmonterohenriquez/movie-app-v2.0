@@ -1,0 +1,68 @@
+@import '../../App'
+.grid-result
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+    grid-gap: 30px 20px
+    justify-items: center
+    
+.SearchResult
+    background: $primary-color
+
+    .main-title h1
+        color: white
+        text-align: center
+        padding: 130px 0 90px
+        margin-top: 0
+        position: relative
+        font-size: 2.5rem
+
+        &:after 
+            content: ''
+            position: absolute
+            left: 50%
+            bottom: 70px
+            width: 60px
+            height: 5px
+            border-radius: 25px
+            transform: translateX(-50%)
+            background: $orange-color-2
+
+        span 
+            color: $orange-color-2
+
+    .search-item
+        display: flex
+        flex-direction: column
+        justify-items: center
+        align-items: center
+        width: 200px
+        transition: transform .5s, opacity .5s
+        opacity: .6
+        cursor: pointer
+
+
+        &:hover
+            transform: scale(1.07)
+            opacity: 1
+
+        img 
+            border-radius: 10px
+            height: 200px
+        h1
+            margin-top: 10px
+            font-size: 1rem
+            text-align: center
+
+        p
+            margin-top: 5px
+
+            i
+                color: #D1B80F
+                margin-right: 7px
+
+    .search-item-title 
+        color: white
+        font-size: 1rem
+
+    .rating 
+        color: white

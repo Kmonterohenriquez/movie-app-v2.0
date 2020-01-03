@@ -17,10 +17,10 @@ import setItemTypeReducer from './reducers/setItemTypeReducer';
 import itemReviewReducer from './reducers/itemReviewReducer';
 import itemTrailersReducer from './reducers/itemTrailersReducer';
 import itemCastsReducer from './reducers/itemCastsReducer';
-// USER 
-import userReducer from './reducers/userReducer'
-import createUserReducer from './reducers/createUserReducer'
-
+// USER
+import userReducer from './reducers/userReducer';
+import createUserReducer from './reducers/createUserReducer';
+import searchResultReducer from './reducers/searchResultReducer';
 
 const rootReducer = combineReducers({
 	getPopularMovies,
@@ -37,7 +37,8 @@ const rootReducer = combineReducers({
 	itemTrailersReducer,
 	itemCastsReducer,
 	userReducer,
-	createUserReducer
+	createUserReducer,
+	searchResultReducer
 });
 
 const middleware = [thunk];
