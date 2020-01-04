@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // PAGES
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
-import Details from './Pages/Details';
+import Details from './Pages/Details/Details';
 import Signup from './Pages/Register/Register';
 import Discover from './Pages/Discover/Discover';
 import SearchResult from './components/SearchResult/SearchResult';

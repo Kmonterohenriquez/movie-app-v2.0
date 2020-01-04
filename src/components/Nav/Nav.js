@@ -4,15 +4,21 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import getUser from '../../redux/actions/user/getUser';
 import axios from 'axios';
-import getMovieSearch from '../../redux/actions/getSearchItem/getMovieSearch'
-import getTvSearch from '../../redux/actions/getSearchItem/getTvSearch'
+import getMovieSearch from '../../redux/actions/getSearchItem/getMovieSearch';
+import getTvSearch from '../../redux/actions/getSearchItem/getTvSearch';
+import WOW from 'wowjs'
 class Nav extends Component {
 	state = {
 		search: ''
 	};
 	componentDidMount() {
-		this.props.getMovieSearch('avenger')
-		this.props.getTvSearch('avenger')
+		new WOW.WOW().init();
+	}
+	componentDidUpdate(prevProps, prevState) {
+		if (this.state.search !== prevState.search) {
+			this.props.getMovieSearch(this.state.search);
+		} else if (this.state.search === '') {
+		}
 	}
 
 	handleChange = e => {
@@ -28,13 +34,15 @@ class Nav extends Component {
 		await axios.post('/auth/logout').catch(err => console.log(err));
 	};
 	render() {
-		// console.log(this.props);
+		console.clear();
+		console.log('User result:', this.props.user.user);
 		return (
-			<header className='Nav'>
+			<header className='Nav '>
+				<div className="Nav-container container">
 				<Link to='/'>
-					<div className='logo'>BestMovies</div>
+					<div className='logo wow fadeIn' data-wow-delay='.5s'>BestMovies</div>
 				</Link>
-				<form className='search-bar' onSubmit={e => this.handleSearch(e)}>
+				<form className='search-bar wow fadeIn' data-wow-delay='.5s' onSubmit={e => this.handleSearch(e)}>
 					<input
 						type='text'
 						placeholder='Search...'
@@ -44,28 +52,41 @@ class Nav extends Component {
 						<i className='fas fa-search'></i>
 					</button>
 				</form>
-				<nav>
+				<nav className='wow fadeIn' data-wow-delay='.5s'>
 					<ul>
-						<Link to='/'><i className='fas fa-home'></i></Link>
-						{this.props.user.user ? (
-							<Link to='/'><i onClick={() => this.logout()} className='fas fa-sign-out-alt'></i></Link>
+						<Link to='/'>
+							<i className='fas fa-home'></i>
+						</Link>
+						{this.props.user.user || this.props.user.user === {}? (
+							<Link to='/'>
+								<i
+									onClick={() => this.logout()}
+									className='fas fa-sign-out-alt'
+								></i>
+							</Link>
 						) : (
-                        <Link to='/login'><i className='fas fa-user-circle'></i></Link>
-                        )}
-						<Link to='/discover'><i className='fas fa-search'></i></Link>
+							<Link to='/login'>
+								<i className='fas fa-user-circle'></i>
+							</Link>
+						)}
+						<Link to='/discover'>
+							<i className='fas fa-search'></i>
+						</Link>
 					</ul>
 				</nav>
+				</div>
 			</header>
 		);
 	}
 }
 const mapStateToProps = state => ({
 	user: state.userReducer,
-	moviesAndShows: 
-	[
-		...state.searchResultReducer.movieSearch,
-		...state.searchResultReducer.tvSearch
+	moviesAndShows: [
+		...state.searchResultReducer.movieSearch
+		// ...state.searchResultReducer.tvSearch
 	]
 });
 
-export default withRouter(connect(mapStateToProps, { getUser, getMovieSearch,getTvSearch })(Nav));
+export default withRouter(
+	connect(mapStateToProps, { getUser, getMovieSearch, getTvSearch })(Nav)
+);

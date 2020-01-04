@@ -6,7 +6,7 @@ const Summary = props => (
 		<div className='circle'>
 			<i className='fas fa-exclamation'></i>
 		</div>
-		<h1>Summary</h1>
+		<h1 className='title'>Summary</h1>
 		<p>{props.overview}</p>
 	</div>
 );

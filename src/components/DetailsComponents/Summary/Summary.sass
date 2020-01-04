@@ -1,11 +1,18 @@
+@import '../../../App'
+.summary-bg
+    background: red
+    padding: 50px
 #Overview-container
-    background: #222831
+    background: $details-bg-container
     margin: 50px 0
     padding: 40px
     border-radius: 10px
     box-shadow: 10px 10px 10px #00000034
     position: relative
 
+    .title
+        color: $details-title
+        
     .circle
         position: absolute
         top: -25px
@@ -16,7 +23,7 @@
         display: flex
         justify-content: center
         align-items: center
-        background: #2d132c
+        background: $primary-color
 
         i
             font-size: 30px
@@ -24,13 +31,13 @@
             padding: 10px
             border-radius: 50%
     h1
-        color: white
+        color: $details-h1
         letter-spacing: 3px
         text-transform: uppercase
         margin-bottom: 25px
         font-size: 1.5rem
     p
-        color: #BAB8C1
+        color: $details-p
         font-size: 1rem
         line-height: 1.6rem
         padding: 0 25px
