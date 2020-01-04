@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
+import './Home.sass'
 // COMPONENTS
-import Section from '../components/Section/Section.js';
+import Section from '../../components/Section/Section.js';
 // REDUX
 import { connect } from 'react-redux';
 // MOVIES
-import getPopularMovies from '../redux/actions/movies/getPopularMovies';
-import getUpcomingMovies from '../redux/actions/movies/getUpcomingMovies';
-import getTopRatedMovies from '../redux/actions/movies/getTopRatedMovies';
-import getNowPlayingMovies from '../redux/actions/movies/getNowPlayingMovies';
+import getPopularMovies from '../../redux/actions/movies/getPopularMovies';
+import getUpcomingMovies from '../../redux/actions/movies/getUpcomingMovies';
+import getTopRatedMovies from '../../redux/actions/movies/getTopRatedMovies';
+import getNowPlayingMovies from '../../redux/actions/movies/getNowPlayingMovies';
 // TV SHOWS
-import getAiringTodayShows from '../redux/actions/Tv/getAiringTodayShows';
-import getPopularShows from '../redux/actions/Tv/getPopularShows';
-import getOnTheAirShows from '../redux/actions/Tv/getOnTheAirShows';
-import getTopRatedShows from '../redux/actions/Tv/getTopRatedShows';
+import getAiringTodayShows from '../../redux/actions/Tv/getAiringTodayShows';
+import getPopularShows from '../../redux/actions/Tv/getPopularShows';
+import getOnTheAirShows from '../../redux/actions/Tv/getOnTheAirShows';
+import getTopRatedShows from '../../redux/actions/Tv/getTopRatedShows';
 // ITEM TYPE
-import setItemType from '../redux/actions/setItemType';
+import setItemType from '../../redux/actions/setItemType';
 //SWIPER
-import carousel from '../components/carousel/carousel';
+import carousel from '../../components/carousel/carousel';
 
-import Loading from '../components/Loading/Loading'
+// import Loading from '../components/Loading/Loading'
 class Home extends Component {
 	// const [categoryToggle, setCategoryToggle] = useState(true);
 	state = {
@@ -29,11 +30,11 @@ class Home extends Component {
 		this.handleMovies();
 		this.handleTv();
 	}
-	// componentDidUpdate(prevProps, prevState) {
-	// 	if (prevProps.data !== this.props.itemType.itemType) {
-
-	// 	}
-	// }
+	componentDidUpdate(prevProps, prevState){
+		if (this.state.categoryToggle !== prevState.categoryToggle){
+			console.log('page updated')
+		}
+	}
 
 	categoryToggle = value => {
 		if (value === true) {
@@ -64,13 +65,14 @@ class Home extends Component {
 			onTheAirShows = this.props.onTheAirShows.onTheAirShows,
 			popularShows = this.props.popularShows.popularShows,
 			topRatedShows = this.props.topRatedShows.topRatedShows;
-			// itemType = this.props.itemType.itemType;
-			// console.log('holaaaaaaaaaaaaaa', itemType)
 		// INVOKING CAROUSEL
 		carousel();
+		console.clear()
+		console.log('updatinggggggg')
 		return (
-			<div>
+			<div className='Home'>
 				{/* <Loading /> */}
+				<div className='container'>
 				<button
 					onClick={() => {
 						this.categoryToggle(true);
@@ -87,21 +89,22 @@ class Home extends Component {
 				>
 					Tv Shows
 				</button>
-				{this.state.categoryToggle ? (
-					<div className='movies'>
-						<Section title='Upcoming' movieData={upcoming} type='movie' />
-						<Section title='Now Playing' movieData={nowPlaying} type='movie' />
-						<Section title='Popular' movieData={popular} type='movie' />
-						<Section title='Top Rated' movieData={topRated} type='movie' />
-					</div>
-				) : (
-					<div className='tv'>
-						<Section title='Airing Today' movieData={airingTodayShows} type='tv' />
-						<Section title='Popular' movieData={popularShows} type='tv' />
-						<Section title='On the Air' movieData={onTheAirShows} type='tv' />
-						<Section title='Top Rated' movieData={topRatedShows} type='tv' />
-					</div>
-				)}
+					{this.state.categoryToggle ? (
+						<div className='movies'>
+							<Section title='Upcoming' movieData={upcoming} type='movie' />
+							<Section title='Now Playing' movieData={nowPlaying} type='movie' />
+							<Section title='Popular' movieData={popular} type='movie' />
+							<Section title='Top Rated' movieData={topRated} type='movie' />
+						</div>
+					) : (
+						<div className='tv'>
+							<Section title='Airing Today' movieData={airingTodayShows} type='tv' />
+							<Section title='Popular' movieData={popularShows} type='tv' />
+							<Section title='On the Air' movieData={onTheAirShows} type='tv' />
+							<Section title='Top Rated' movieData={topRatedShows} type='tv' />
+						</div>
+					)}
+				</div>
 			</div>
 		);
 	}

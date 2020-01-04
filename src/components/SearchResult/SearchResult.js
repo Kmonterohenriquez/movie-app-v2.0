@@ -2,22 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './SearchResult.sass';
 import { Link } from 'react-router-dom';
+import WOW from 'wowjs';
+
 class SearchResult extends Component {
 	state = {};
+	componentDidMount(){
+		new WOW.WOW().init();
+	}
 	render() {
 		console.log('from search result', this.props.moviesAndShows);
+		let { moviesAndShows } = this.props;
 		return (
 			<div className='SearchResult '>
 				<div className='container'>
 					<div className='main-title'>
-						<h1>Search result for <span>Avenger</span></h1>
+						<h1 className='wow zoomInUp'>
+							Search result for <span>Avenger</span>
+						</h1>
 					</div>
-					<div className='grid-result '>
-						{this.props.moviesAndShows.map(curr =>
+					{!moviesAndShows.length ? <h1 className='no_movie_found'> No movie found</h1>:   
+					<div className='grid-result wow fadeIn ' data-wow-delay='.5s'>
+						{moviesAndShows.map(curr =>
 							curr.poster_path ? (
 								<Link
 									to={`/details/${curr.id}`}
-									className='search-item'
+									className='search-item '
 									key={curr.id}
 								>
 									<img
@@ -34,7 +43,7 @@ class SearchResult extends Component {
 								</Link>
 							) : null
 						)}
-					</div>
+					</div>}
 				</div>
 			</div>
 		);

@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 // COMPONENTS
-import Header from '../components/DetailsComponents/Header/Header';
-import Summary from '../components/DetailsComponents/Summary/Summary';
-import PopularReviews from '../components/DetailsComponents/PopularReviews/PopularReviews';
-import Trailers from '../components/DetailsComponents/Trailers/Trailers';
-import Casts from '../components/DetailsComponents/Casts/Casts';
-import UserReviews from '../components/DetailsComponents/UserReviews/UserReviews';
-import PostReview from '../components/DetailsComponents/PostReview/PostReview';
+import Header from '../../components/DetailsComponents/Header/Header';
+import Summary from '../../components/DetailsComponents/Summary/Summary';
+import PopularReviews from '../../components/DetailsComponents/PopularReviews/PopularReviews';
+import Trailers from '../../components/DetailsComponents/Trailers/Trailers';
+import Casts from '../../components/DetailsComponents/Casts/Casts';
+import UserReviews from '../../components/DetailsComponents/UserReviews/UserReviews';
+import PostReview from '../../components/DetailsComponents/PostReview/PostReview';
 // REDUX
 import { connect } from 'react-redux';
-import getSingleDetail from '../redux/actions/getSingleDetail';
-import setItemType from '../redux/actions/setItemType';
-import getItemReviews from '../redux/actions/getItemReviews';
-import getItemTrailers from '../redux/actions/getItemTrailers';
-import getItemCasts from '../redux/actions/getItemCasts';
-import getUser from '../redux/actions/user/getUser';
+import getSingleDetail from '../../redux/actions/getSingleDetail';
+import setItemType from '../../redux/actions/setItemType';
+import getItemReviews from '../../redux/actions/getItemReviews';
+import getItemTrailers from '../../redux/actions/getItemTrailers';
+import getItemCasts from '../../redux/actions/getItemCasts';
+import getUser from '../../redux/actions/user/getUser';
 
 import axios from 'axios';
+import './Details.sass'
 class Details extends Component {
 	state = {
 		type: this.props.itemType.itemType,
@@ -56,7 +57,7 @@ class Details extends Component {
 		const user = this.props.user.user
 		console.log('USER INFO: ', user)
 		return (
-			<div className='Details' style={{ background: '#2D132C', paddingBottom: '50px' }}>
+			<div className='Details'>
 				<Header
 					title={singleDetail.title}
 					backdrop_path={singleDetail.backdrop_path}
@@ -65,7 +66,7 @@ class Details extends Component {
 					original_language={singleDetail.original_language}
 					genres={singleDetail.genres}
 				/>
-				<div className='container'>
+				<div className='container '>
 					<Summary overview={singleDetail.overview} />
 					<Casts cast={casts} />
 					<Trailers trailers={trailers} />
