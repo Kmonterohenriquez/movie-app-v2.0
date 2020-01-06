@@ -6,7 +6,7 @@ import WOW from 'wowjs';
 
 class SearchResult extends Component {
 	state = {};
-	componentDidMount(){
+	componentDidMount() {
 		new WOW.WOW().init();
 	}
 	render() {
@@ -20,30 +20,36 @@ class SearchResult extends Component {
 							Search result for <span>Avenger</span>
 						</h1>
 					</div>
-					{!moviesAndShows.length ? <h1 className='no_movie_found'> No movie found</h1>:   
-					<div className='grid-result wow fadeIn ' data-wow-delay='.5s'>
-						{moviesAndShows.map(curr =>
-							curr.poster_path ? (
-								<Link
-									to={`/details/${curr.id}`}
-									className='search-item '
-									key={curr.id}
-								>
-									<img
-										src={`http://image.tmdb.org/t/p/w185/${curr.poster_path}`}
-										alt={curr.title || curr.original_name}
-									/>
-									<h1 className='search-item-title'>
-										{curr.title || curr.name}
-									</h1>
-									<p className='rating'>
-										<i className='fas fa-star'></i>
-										{curr.vote_average}
-									</p>
-								</Link>
-							) : null
-						)}
-					</div>}
+					{!moviesAndShows.length ? (
+						<h1 className='no_movie_found wow fadeInUp' data-wow-delay='.8s'>
+							{' '}
+							No movie found
+						</h1>
+					) : (
+						<div className='grid-result wow fadeIn ' data-wow-delay='.5s'>
+							{moviesAndShows.map(curr =>
+								curr.poster_path ? (
+									<Link
+										to={`/details/${curr.id}`}
+										className='search-item'
+										key={curr.id}
+									>
+										<img
+											src={`http://image.tmdb.org/t/p/w185/${curr.poster_path}`}
+											alt={curr.title || curr.original_name}
+										/>
+										<h1 className='search-item-title'>
+											{curr.title || curr.name}
+										</h1>
+										<p className='rating'>
+											<i className='fas fa-star'></i>
+											{curr.vote_average}
+										</p>
+									</Link>
+								) : null
+							)}z
+						</div>
+					)}
 				</div>
 			</div>
 		);
