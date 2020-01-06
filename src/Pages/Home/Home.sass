@@ -4,9 +4,39 @@
     min-height: 100vh
     padding-bottom: 100px
 
+    &-btn-container
+        display: flex
+        padding: 60px 0
+        align-items: center
+        justify-content: center
+        button
+            border-radius: 50px
+            padding: 20px 0px
+            width: 500px
+            text-transform: uppercase
+            letter-spacing: 1.5px
+            box-shadow: 5px 5px 15px #0000005e
+
+            &:first-child
+                margin-right: 40px
+
 .Section-container 
     background: $details-bg-container
     padding: 10px 40px
     border-radius: 20px 
     box-shadow: 5px 5px 10px #00000031
+
+
+@media (max-width: 600px)
+
+    .Home 
+
+        &-btn-container
+            padding: 30px 0 
+            button
+                padding: 15px 0
+                font-size: .8rem
+                
+                &:first-child
+                    margin-right: 20px
     
