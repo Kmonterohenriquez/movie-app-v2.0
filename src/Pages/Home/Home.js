@@ -18,7 +18,7 @@ import getTopRatedShows from '../../redux/actions/Tv/getTopRatedShows';
 import setItemType from '../../redux/actions/setItemType';
 //SWIPER
 import carousel from '../../components/carousel/carousel';
-
+import Showcase from '../../components/Showcase/Showcase'
 // import Loading from '../components/Loading/Loading'
 class Home extends Component {
 	// const [categoryToggle, setCategoryToggle] = useState(true);
@@ -71,7 +71,7 @@ class Home extends Component {
 		console.log('updatinggggggg')
 		return (
 			<div className='Home'>
-				{/* <Loading /> */}
+				<Showcase />
 				<div className='container'>
 				<button
 					onClick={() => {
@@ -89,21 +89,23 @@ class Home extends Component {
 				>
 					Tv Shows
 				</button>
-					{this.state.categoryToggle ? (
-						<div className='movies'>
-							<Section title='Upcoming' movieData={upcoming} type='movie' />
-							<Section title='Now Playing' movieData={nowPlaying} type='movie' />
-							<Section title='Popular' movieData={popular} type='movie' />
-							<Section title='Top Rated' movieData={topRated} type='movie' />
-						</div>
-					) : (
-						<div className='tv'>
-							<Section title='Airing Today' movieData={airingTodayShows} type='tv' />
-							<Section title='Popular' movieData={popularShows} type='tv' />
-							<Section title='On the Air' movieData={onTheAirShows} type='tv' />
-							<Section title='Top Rated' movieData={topRatedShows} type='tv' />
-						</div>
-					)}
+					<div className='Section-container'>
+						{this.state.categoryToggle ? (
+							<div className='movies'>
+								<Section title='Upcoming' movieData={upcoming} type='movie' />
+								<Section title='Now Playing' movieData={nowPlaying} type='movie' />
+								<Section title='Popular' movieData={popular} type='movie' />
+								<Section title='Top Rated' movieData={topRated} type='movie' />
+							</div>
+						) : (
+							<div className='tv'>
+								<Section title='Airing Today' movieData={airingTodayShows} type='tv' />
+								<Section title='Popular' movieData={popularShows} type='tv' />
+								<Section title='On the Air' movieData={onTheAirShows} type='tv' />
+								<Section title='Top Rated' movieData={topRatedShows} type='tv' />
+							</div>
+						)}
+					</div>
 				</div>
 			</div>
 		);
