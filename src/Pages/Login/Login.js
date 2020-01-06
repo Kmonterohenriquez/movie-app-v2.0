@@ -31,7 +31,7 @@ const Login = props => {
 			<img
 				className='lights-img wow fadeIn'
 				data-wow-duration='1s'
-				data-wow-delay='.3s'
+				data-wow-delay='1s'
 				src={lights}
 				alt='lights'
 			/>
