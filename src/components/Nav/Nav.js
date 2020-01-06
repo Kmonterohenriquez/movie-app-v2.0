@@ -7,6 +7,7 @@ import axios from 'axios';
 import getMovieSearch from '../../redux/actions/getSearchItem/getMovieSearch';
 import getTvSearch from '../../redux/actions/getSearchItem/getTvSearch';
 import WOW from 'wowjs'
+import logo from '../../img/theater_logo.png'
 class Nav extends Component {
 	state = {
 		search: ''
@@ -40,7 +41,7 @@ class Nav extends Component {
 			<header className='Nav '>
 				<div className="Nav-container container">
 				<Link to='/'>
-					<div className='logo wow fadeIn' data-wow-delay='.5s'>BestMovies</div>
+					<div className='logo wow fadeIn' data-wow-delay='.5s'><img src={logo} alt="iFLIX"/></div>
 				</Link>
 				<form className='search-bar wow fadeIn' data-wow-delay='.5s' onSubmit={e => this.handleSearch(e)}>
 					<input

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 // COMPONENTS
 import Header from '../../components/DetailsComponents/Header/Header';
 import Summary from '../../components/DetailsComponents/Summary/Summary';
