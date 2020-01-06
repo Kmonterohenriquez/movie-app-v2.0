@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express'),
 	massive = require('massive'),
 	session = require('express-session'),
-	{ SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env.development.local,
+	{ SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
 	authCtrl = require('./controllers/authController'),
 	reviewCtrl = require('./controllers/reviewController'),
 	app = express();

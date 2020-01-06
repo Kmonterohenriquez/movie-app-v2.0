@@ -24,9 +24,10 @@
 
 
 
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # # API key
-# ./src/redux/actions/API_KEY.js
+# /src/redux/actions/API_KEY.js

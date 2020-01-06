@@ -43,7 +43,7 @@ class Discover extends Component {
 	};
 
 getMovies=()=> {
-		const key_API = 'dd36eee247f144ba66fce886e88c3fa7';
+		const key_API = process.env.REACT_APP_MOVIEDB_API_KEY;
 		let { page } = this.state;
 		axios
 			.get(
