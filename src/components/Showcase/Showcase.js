@@ -5,7 +5,7 @@ import './Showcase.sass'
 import {Link} from 'react-router-dom'
 import ShowcaseCarousel from './ShowcaseCarousel'
 const Showcase =(props)=>{
-    console.log("SHOWCASE result: ", props.nowPlayingMovies.nowPlayingMovies)
+    // console.log("SHOWCASE result: ", props.nowPlayingMovies.nowPlayingMovies)
     ShowcaseCarousel()
     return(
         <div className='Showcase-container'>

@@ -6,25 +6,35 @@ import lights from '../../img/lights.jpg';
 import './Login.sass';
 import { connect } from 'react-redux';
 import getUser from '../../redux/actions/user/getUser';
-
+// import WOW from 'wowjs';
 import axios from 'axios';
+
 const Login = props => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	// useEffect(() => {
+	// 	new WOW.WOW().init();
+	// });
 	const handleSubmit = e => {
 		e.preventDefault();
 		axios.post('/auth/login', { email, password }).then(res => {
 			props.getUser(res.data);
-			console.log(res.data)
+			console.log(res.data);
 			props.history.push('/');
 		});
 		// props.getUser({email, password)
 	};
-	console.log('PROPS', props)
+	console.log('PROPS', props);
 	return (
 		<div className='Login-container'>
-			<img className='lights-img wow fadeIn' data-wow-duration='1s' data-wow-delay='.3s' src={lights} alt='lights' />
+			<img
+				className='lights-img wow fadeIn'
+				data-wow-duration='1s'
+				data-wow-delay='.3s'
+				src={lights}
+				alt='lights'
+			/>
 			<Link to='/'>
 				<i
 					className='arrow fas fa-chevron-left wow bounceInLeft'
@@ -71,6 +81,6 @@ const Login = props => {
 
 const mapStateToProps = state => ({
 	getUser: state.getUser
-})
+});
 
 export default withRouter(connect(mapStateToProps, { getUser })(Login));

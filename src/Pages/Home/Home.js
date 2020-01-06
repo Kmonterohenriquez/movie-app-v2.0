@@ -67,28 +67,29 @@ class Home extends Component {
 			topRatedShows = this.props.topRatedShows.topRatedShows;
 		// INVOKING CAROUSEL
 		carousel();
-		console.clear()
-		console.log('updatinggggggg')
+		
 		return (
 			<div className='Home'>
 				<Showcase />
 				<div className='container'>
-				<button
-					onClick={() => {
-						this.categoryToggle(true);
-						this.props.setItemType('movie');
-					}}
-				>
-					movies
-				</button>
-				<button
-					onClick={() => {
-						this.categoryToggle(false);
-						this.props.setItemType('tv');
-					}}
-				>
-					Tv Shows
-				</button>
+				<div className='Home-btn-container'>
+					<button
+						onClick={() => {
+							this.categoryToggle(true);
+							this.props.setItemType('movie');
+						}}
+					>
+						movies
+					</button>
+					<button
+						onClick={() => {
+							this.categoryToggle(false);
+							this.props.setItemType('tv');
+						}}
+					>
+						Tv Shows
+					</button>
+				</div>
 					<div className='Section-container'>
 						{this.state.categoryToggle ? (
 							<div className='movies'>
