@@ -20,6 +20,8 @@ import setItemType from '../../redux/actions/setItemType';
 import carousel from '../../components/carousel/carousel';
 import Showcase from '../../components/Showcase/Showcase'
 // import Loading from '../components/Loading/Loading'
+import Footer from '../../components/Footer/Footer'
+
 class Home extends Component {
 	// const [categoryToggle, setCategoryToggle] = useState(true);
 	state = {
@@ -108,6 +110,7 @@ class Home extends Component {
 						)}
 					</div>
 				</div>
+				<Footer/>
 			</div>
 		);
 	}
