@@ -32,8 +32,8 @@ class Details extends Component {
 		// this.props.setItem'movie'('tv');
 		this.props.getItemTrailers('movie', id);
 		this.props.getItemCasts('movie', id);
-		this.props.getUser()
-		this.getUserInfo();
+		// this.props.getUser()
+		// this.getUserInfo();
 		this.getReviews();
 	}
 	getReviews = () => {

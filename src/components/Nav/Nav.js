@@ -8,6 +8,7 @@ import getMovieSearch from '../../redux/actions/getSearchItem/getMovieSearch';
 import getTvSearch from '../../redux/actions/getSearchItem/getTvSearch';
 import WOW from 'wowjs';
 import logo from '../../img/theater_logo.png';
+
 class Nav extends Component {
 	state = {
 		search: ''
@@ -18,17 +19,16 @@ class Nav extends Component {
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.search !== prevState.search) {
 			this.props.getMovieSearch(this.state.search);
-		} 
+		}
 		// else if (this.state.search === '') {
 		// }
 
-		if (this.props.user.user !== prevProps.user.user ) {
-			console.clear()
+		if (this.props.user.user !== prevProps.user.user) {
+			// console.clear()
 			console.log('nav icons updated');
-			
 		}
 	}
-	
+
 	handleChange = e => {
 		this.setState({ search: e.target.value });
 	};
@@ -41,12 +41,15 @@ class Nav extends Component {
 	logout = async () => {
 		await axios.post('/auth/logout').catch(err => console.log(err));
 		console.log('logged out');
+		this.props.getUser({ email: 'no body' });
+		// this.props.history.push('/login');
 	};
 	render() {
-		// console.clear();
-		// let result = this.props.user.user.email === 'no body' ? true: false
 		console.log('User result:', this.props.user.user);
-		console.log('User result:', this.props.user.user === undefined? true : false);
+		console.log(
+			'User result:',
+			this.props.user.user === undefined ? true : false
+		);
 		return (
 			<header className='Nav '>
 				<div className='Nav-container container'>
@@ -71,25 +74,30 @@ class Nav extends Component {
 					</form>
 					<nav className='wow fadeIn' data-wow-delay='.5s'>
 						<ul>
-							<Link to='/profile'><i className='fas fa-home'>hola</i></Link>
 							<Link to='/'>
 								<i className='fas fa-home'></i>
 							</Link>
-							{this.props.user.user === undefined || this.props.user.user.email === 'no body' ? (
+							<Link to='/discover'>
+								<i className='fas fa-search-location'></i>
+							</Link>
+							{this.props.user.user.email === 'no body' ||
+							this.props.user.user === undefined ? (
 								<Link to='/login'>
 									<i className='fas fa-user-circle'></i>
 								</Link>
 							) : (
-								<Link to='/'>
-									<i
-										onClick={() => this.logout()}
-										className='fas fa-sign-out-alt'
-									></i>
-								</Link>
+								<>
+									<Link to='/profile'>
+										<i className='fas fa-user'></i>
+									</Link>
+									<Link to='/'>
+										<i
+											onClick={() => this.logout()}
+											className='fas fa-sign-out-alt'
+										></i>
+									</Link>
+								</>
 							)}
-							<Link to='/discover'>
-								<i className='fas fa-search'></i>
-							</Link>
 						</ul>
 					</nav>
 				</div>
