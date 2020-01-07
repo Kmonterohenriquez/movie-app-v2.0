@@ -1,7 +1,7 @@
 import React from 'react';
 // STYLE
 import './Profile.sass';
-
+// import categories from ''
 // COMPONENTS
 
 import LeftPanel from './LeftPanel/LeftPanel.js';
@@ -18,6 +18,7 @@ const Profile = () => {
 				<div className='RightPanel'>
 					<NavCategories />
 					<CategorySliderCategory />
+					{/* {categories} */}
 				</div>
 			</div>
 		</div>
