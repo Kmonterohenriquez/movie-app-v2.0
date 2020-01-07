@@ -1,0 +1,43 @@
+@import '../../../App'
+
+.NavCategories-grid 
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))
+    grid-gap: 30px
+    justify-items: center
+    align-content: center
+
+    .option
+        cursor: pointer
+        border-radius: 15px
+        background: $primary-color
+        box-sizing: border-box
+        padding: 20px 40px
+        width: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        transition: transform .5s, box-shadow .5s
+        
+        &:hover 
+            transform: scale(1.02)
+            box-shadow: 5px 5px 10px #00000057
+        
+        p 
+            color: white
+            text-transform: uppercase 
+            font-size: .8em
+            font-weight: 600
+
+        .icon-container
+            height: 30px 
+            width: 30px
+            background: $secondary-color
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 50%
+            margin-right: 10px 
+
+            i 
+                color: white    

@@ -71,6 +71,7 @@ class Nav extends Component {
 					</form>
 					<nav className='wow fadeIn' data-wow-delay='.5s'>
 						<ul>
+							<Link><i className='fas fa-home'>hola</i></Link>
 							<Link to='/'>
 								<i className='fas fa-home'></i>
 							</Link>
