@@ -1,0 +1,97 @@
+.Footer-container
+    margin-top: 100px
+    background: #222831
+
+    img 
+        height: 45px
+        margin-bottom: 20px
+    
+    .API-logo
+        height: 100px
+        margin-right: 35px
+        
+    .Footer-content
+        padding: 50px 0
+        nav 
+            ul
+                padding: 0
+                li 
+                    list-style: none
+                    margin-bottom: 20px
+                    span    
+                        font-weight: 700
+                        margin-right: 40px
+                        color: grey
+
+                    a   
+                        color: white
+                        text-decoration: none
+                        font-weight: 500
+                        
+                        &:hover
+                            text-decoration: underline
+
+
+    .copyright
+        background: #393e46
+        padding: 7px 0
+        p   
+            text-align: center
+            color: gray
+        a
+            color: white
+            text-decoration: none
+            
+            &:hover
+                text-decoration: underline
+
+    .social-media
+        display: flex
+        justify-content: flex-end
+        align-items: center
+
+        &-circle
+            width: 50px
+            height: 50px
+            border-radius: 50%
+            margin-left: 13px
+            cursor: pointer
+            box-shadow: 10px 10px 10px #00000036
+            
+            display: flex
+            justify-content: center
+            align-items: center
+
+            background: #393e46
+            transition: background .4s
+            &:nth-of-type(1)
+                margin-left: 0
+                
+            &:hover
+                background: white
+
+    // Icons
+    i
+        display: absolute
+        color: grey
+        font-size: 20px
+        border-radius: 50%
+
+.Footer-top 
+    display: flex
+    justify-content: space-between
+
+
+
+@media (max-width: 700px)
+    
+
+    .Footer-top 
+        align-items: center
+        flex-direction: column
+    .Footer-container 
+        .social-media
+            justify-content: center
+        .API-logo
+            margin-top: 20px
+            margin-right: 0
