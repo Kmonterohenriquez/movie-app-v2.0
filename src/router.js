@@ -8,6 +8,7 @@ import Details from './Pages/Details/Details';
 import Signup from './Pages/Register/Register';
 import Discover from './Pages/Discover/Discover';
 import SearchResult from './components/SearchResult/SearchResult';
+import Profile from './components/Profile/Profile'
 
 export default (
 	<Switch>
@@ -17,5 +18,6 @@ export default (
 		<Route component={Discover} exact path='/discover' />
 		<Route component={Details} path='/details/:id' />
 		<Route component={SearchResult} path='/search_result' />
+		<Route component={Profile} path='/profile' />
 	</Switch>
 );
