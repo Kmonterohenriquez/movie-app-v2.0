@@ -3,14 +3,14 @@ import React from 'react';
 import './Profile.sass';
 
 // COMPONENTS
-import Navbar from '../../Components/Navbar/Navbar'
-import LeftPanel from '../../Components/Profile/LeftPanel/LeftPanel';
+
+import LeftPanel from './LeftPanel/LeftPanel.js';
 import NavCategories from './NavCategories/NavCategories.js';
-import CategorySliderCategory from '../../Components/Profile/CategorySliderCategory/CategorySliderCategory'
+import CategorySliderCategory from './CategorySliderCategory/CategorySliderCategory'
 const Profile = () => {
 	return (
 		<div className='Profile '>
-			<Navbar/>
+		
 			<div className='Profile-grid lg-container'>
 				<div className='LeftPanel'>
 					<LeftPanel />

@@ -1,5 +1,5 @@
 import React from 'react'
-import './CategorySliderCategory.css'
+import './CategorySliderCategory.sass'
 // import SingleSlideCategory from '../SingleSlideCategory/SingleSlideCategory'
 const CategorySliderCategory =()=>{
     return(
