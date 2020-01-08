@@ -25,7 +25,6 @@ const Login = props => {
 		});
 		// props.getUser({email, password)
 	};
-	console.log('PROPS', props);
 	return (
 		<div className='Login-container'>
 			<img

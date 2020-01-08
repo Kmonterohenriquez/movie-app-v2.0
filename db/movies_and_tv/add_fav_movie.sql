@@ -1,4 +1,5 @@
 INSERT INTO fav_movies(
+    movie_id,
     movie_pic,
     movie_rate,
     user_id
@@ -6,5 +7,6 @@ INSERT INTO fav_movies(
 values (
     $1,
     $2,
-    $3
+    $3,
+    $4
 );
