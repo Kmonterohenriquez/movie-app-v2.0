@@ -34,11 +34,11 @@ class Home extends Component {
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.categoryToggle !== prevState.categoryToggle) {
-			console.log('page updatedL category toggle');
+			// console.log('page updatedL category toggle');
 		}
 
 		if(this.props.itemType.itemType !== prevProps.itemType){
-			console.log('page updated: item type')
+			// console.log('page updated: item type')
 		}
 	}
 
@@ -152,12 +152,6 @@ const mapStateToProps = state => ({
 	itemType: state.setItemTypeReducer
 });
 
-// const mapDispatcherToProps = dispatch => ({
-// 	getPopularMovies: url => dispatch(getPopularMovies(url)),
-// 	getUpcomingMovies: url => dispatch(getUpcomingMovies(url)),
-// 	getTopRatedMovies: url => dispatch(getTopRatedMovies(url)),
-// 	getNowPlayingMovies: url => dispatch(getNowPlayingMovies(url))
-// });
 export default connect(mapStateToProps, {
 	getPopularMovies,
 	getUpcomingMovies,

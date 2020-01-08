@@ -36,7 +36,10 @@ app.delete('/api/review/:review_id', reviewCtrl.deleteReview);
 // app.put('/api/review/:review_id', reviewCtrl.editReview);
 // app.get('/api/review/:id', reviewCtrl.getUserReviews);
 
-// app.post('/api/favorite_movies', moviesAndTvCtrl.addFavMovie);
+
+app.get('/api/favorite_movies/:movie_id/:user_id', moviesAndTvCtrl.checkMovie);
+app.post('/api/favorite_movies', moviesAndTvCtrl.addFavMovie);
+app.delete('/api/favorite_movies/:movie_id/:user_id', moviesAndTvCtrl.deleteFavMovie);
 // app.get('/api/favorite_movies', moviesAndTvCtrl.getFavMovies);
 // app.post('/api/favorite_shows', moviesAndTvCtrl.addFavShow);
 // app.get('/api/favorite_shows', moviesAndTvCtrl.getFavShows);

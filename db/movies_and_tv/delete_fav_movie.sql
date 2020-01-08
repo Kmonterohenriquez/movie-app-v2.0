@@ -1,2 +1,2 @@
 delete from fav_movies 
-where user_id = $1;
+where movie_id= $1 AND user_id = $2 ;
