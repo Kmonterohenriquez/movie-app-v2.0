@@ -10,9 +10,17 @@ module.exports = {
 			.add_fav_movie(movie_pic, movie_rate, user_id)
 			.then(res.sendStatus(200))
 			.catch(err => res.status(500).send(err));
+    },
+    deleteFavMovie: async (req, res) => {
+		const { fav_movie_id } = req.params;
+		const db = req.app.get('db');
+		await db.movies_and_tv
+			.delete_fav_movie(fav_movie_id)
+			.then(res.sendStatus(200))
+			.catch(err => res.status(500).send(err));
 	},
 	getFavMovies: async (req, res) => {
-		const { user_id } = req.body;
+		const { user_id } = req.params;
 		const db = req.app.get('db');
 
 		await db.movies_and_tv
@@ -29,11 +37,19 @@ module.exports = {
 			.catch(err => res.status(500).send(err));
 	},
 
+    deleteFavShow: async (req, res) => {
+        const { fav_shows_id } = req.params;
+        const db = req.app.get('db');
+        await db.movies_and_tv
+            .delete_fav_show(fav_shows_id)
+            .then(res.sendStatus(200))
+            .catch(err => res.status(500).send(err));
+    },
 	getFavShows: async (req, res) => {
-		const { user_id } = req.body;
+		const { user_id } = req.params;
 		const db = req.app.get('db');
 
-		await db
+		await db.movies_and_tv
 			.get_fav_shows(user_id)
 			.then(shows => res.status(200).send(shows))
 			.catch(err => res.status(500).send(err));
