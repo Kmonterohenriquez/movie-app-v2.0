@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.sass';
 
-class Header extends Component {
-	render() {
+
+const Header =(props)=> {
+	const [heartToggle, setHeartToggle] = useState(false);
+
+
 		const {
 			title,
 			backdrop_path,
@@ -11,8 +14,8 @@ class Header extends Component {
 			vote_average,
 			original_language,
 			// genres
-		} = this.props;
-
+		} = props;
+		let color = heartToggle? 'red wow heartBeat': 'white';
 		return (
 			<div className='Header-container'>
 				<Link to='/'>
@@ -43,14 +46,14 @@ class Header extends Component {
 							{/* <div> {genres[0].name ? genres[0].name : <p>Genre</p>} </div> */}
 						</div>
 						<div className='info-right'>
-							<i className='fas fa-heart heart-icon'></i>
+							<i className={`fas fa-heart heart-icon ${color}`} onClick={()=> setHeartToggle(!heartToggle)}></i>
 						</div>
 					</div>
 				</div>
 				{/* {this.props.title} */}
 			</div>
 		);
-	}
+	
 }
 
 export default Header;

@@ -30,8 +30,8 @@ const Login = props => {
 		<div className='Login-container'>
 			<img
 				className='lights-img wow fadeIn'
-				data-wow-duration='1s'
-				data-wow-delay='1s'
+				// data-wow-duration='1s'
+				// data-wow-delay='1s'
 				src={lights}
 				alt='lights'
 			/>
