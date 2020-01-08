@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Home.sass'
+import './Home.sass';
 // COMPONENTS
 import Section from '../../components/Section/Section.js';
 // REDUX
@@ -18,9 +18,9 @@ import getTopRatedShows from '../../redux/actions/Tv/getTopRatedShows';
 import setItemType from '../../redux/actions/setItemType';
 //SWIPER
 import carousel from '../../components/carousel/carousel';
-import Showcase from '../../components/Showcase/Showcase'
-// import Loading from '../components/Loading/Loading'
-import Footer from '../../components/Footer/Footer'
+import Showcase from '../../components/Showcase/Showcase';
+import Footer from '../../components/Footer/Footer';
+// import setItemType from '../../redux/actions/setItemType';
 
 class Home extends Component {
 	// const [categoryToggle, setCategoryToggle] = useState(true);
@@ -32,9 +32,13 @@ class Home extends Component {
 		this.handleMovies();
 		this.handleTv();
 	}
-	componentDidUpdate(prevProps, prevState){
-		if (this.state.categoryToggle !== prevState.categoryToggle){
-			console.log('page updated')
+	componentDidUpdate(prevProps, prevState) {
+		if (this.state.categoryToggle !== prevState.categoryToggle) {
+			console.log('page updatedL category toggle');
+		}
+
+		if(this.props.itemType.itemType !== prevProps.itemType){
+			console.log('page updated: item type')
 		}
 	}
 
@@ -46,6 +50,7 @@ class Home extends Component {
 		}
 	};
 	handleMovies() {
+		this.props.setItemType('tv');
 		this.props.getPopularMovies();
 		this.props.getUpcomingMovies();
 		this.props.getNowPlayingMovies();
@@ -53,6 +58,7 @@ class Home extends Component {
 	}
 
 	handleTv() {
+		this.props.setItemType('movie');
 		this.props.getAiringTodayShows();
 		this.props.getOnTheAirShows();
 		this.props.getPopularShows();
@@ -69,48 +75,64 @@ class Home extends Component {
 			topRatedShows = this.props.topRatedShows.topRatedShows;
 		// INVOKING CAROUSEL
 		carousel();
-		
+
 		return (
 			<div className='Home'>
 				<Showcase />
 				<div className='container'>
-				<div className='Home-btn-container'>
-					<button
-						onClick={() => {
-							this.categoryToggle(true);
-							this.props.setItemType('movie');
-						}}
-					>
-						movies
-					</button>
-					<button
-						onClick={() => {
-							this.categoryToggle(false);
-							this.props.setItemType('tv');
-						}}
-					>
-						Tv Shows
-					</button>
-				</div>
+					<div className='Home-btn-container'>
+						<button
+							onClick={() => {
+								this.categoryToggle(true);
+								this.props.setItemType('movie');
+							}}
+						>
+							movies
+						</button>
+						<button
+							onClick={() => {
+								this.categoryToggle(false);
+								this.props.setItemType('tv');
+							}}
+						>
+							Tv Shows
+						</button>
+					</div>
 					<div className='Section-container'>
 						{this.state.categoryToggle ? (
 							<div className='movies'>
 								<Section title='Upcoming' movieData={upcoming} type='movie' />
-								<Section title='Now Playing' movieData={nowPlaying} type='movie' />
+								<Section
+									title='Now Playing'
+									movieData={nowPlaying}
+									type='movie'
+								/>
 								<Section title='Popular' movieData={popular} type='movie' />
 								<Section title='Top Rated' movieData={topRated} type='movie' />
 							</div>
 						) : (
 							<div className='tv'>
-								<Section title='Airing Today' movieData={airingTodayShows} type='tv' />
+								<Section
+									title='Airing Today'
+									movieData={airingTodayShows}
+									type='tv'
+								/>
 								<Section title='Popular' movieData={popularShows} type='tv' />
-								<Section title='On the Air' movieData={onTheAirShows} type='tv' />
-								<Section title='Top Rated' movieData={topRatedShows} type='tv' />
+								<Section
+									title='On the Air'
+									movieData={onTheAirShows}
+									type='tv'
+								/>
+								<Section
+									title='Top Rated'
+									movieData={topRatedShows}
+									type='tv'
+								/>
 							</div>
 						)}
 					</div>
 				</div>
-				<Footer/>
+				<Footer />
 			</div>
 		);
 	}

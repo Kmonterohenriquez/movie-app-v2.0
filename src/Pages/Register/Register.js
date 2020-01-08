@@ -36,12 +36,12 @@ const Register = props => {
 			</Link>
 			<img
 				className='lights-img wow fadeIn'
-				data-wow-duration='1s'
-				data-wow-delay='.3s'
+				// data-wow-duration='1s'
+				data-wow-delay='.1s'
 				src={lights}
 				alt='lights'
 			/>
-			<div className='Register-container'>
+			<div className='Register-container wow bounceIn' data-wow-delay='.6s'>
 				<h1>Sign Up</h1>
 				<img className='profile-img' src={userPlaceholder} alt='' />
 				<form onSubmit={e => handleSubmit(e)}>

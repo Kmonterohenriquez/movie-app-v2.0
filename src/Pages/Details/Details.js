@@ -26,12 +26,13 @@ class Details extends Component {
 
 	componentDidMount() {
 		const id = this.props.match.params.id;
+		const itemType = this.props.itemType.itemType;
 		// const type = this.state.type;
-		this.props.getSingleDetail('movie', id);
-		this.props.getItemReviews('movie', id);
+		this.props.getSingleDetail(itemType, id);
+		this.props.getItemReviews(itemType, id);
 		// this.props.setItem'movie'('tv');
-		this.props.getItemTrailers('movie', id);
-		this.props.getItemCasts('movie', id);
+		this.props.getItemTrailers(itemType, id);
+		this.props.getItemCasts(itemType, id);
 		// this.props.getUser()
 		// this.getUserInfo();
 		this.getReviews();
@@ -55,7 +56,11 @@ class Details extends Component {
 		// const type = this.props.itemType.itemType;
 		
 		const user = this.props.user.user
-		console.log('USER INFO: ', user)
+		const itemType = this.props.itemType.itemType;
+
+
+		console.log('ITEM TYPE ', itemType)
+		console.log('user from header: ', user)
 		return (
 			<div className='Details'>
 				<Header
@@ -65,6 +70,9 @@ class Details extends Component {
 					vote_average={singleDetail.vote_average}
 					original_language={singleDetail.original_language}
 					genres={singleDetail.genres}
+					type={itemType}
+					user_id={user.user_id}
+					// movi
 				/>
 				<div className='container '>
 					<Summary overview={singleDetail.overview} />

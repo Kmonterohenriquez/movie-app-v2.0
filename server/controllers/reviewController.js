@@ -33,9 +33,4 @@ module.exports = {
 		const db = req.app.get('db');
 		db.reviews.delete_review(review_id).then(res.sendStatus(200));
 	},
-	// editReview: (req, res)=> {
-	// 	const {review_id} = req.body;
-	// 	const db = req.app.get('db');
-	// 	db.reviews.edit_review(review_id).(then(res.sendStatus(200)))
-	// }
 };
