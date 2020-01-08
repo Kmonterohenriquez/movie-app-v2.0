@@ -13,9 +13,11 @@ const Header =(props)=> {
 			poster_path,
 			vote_average,
 			original_language,
+			name
 			// genres
-		} = props;
+		} = props.singleDetail;
 		let color = heartToggle? 'red wow heartBeat': 'white';
+		console.log("header name: ", props)
 		return (
 			<div className='Header-container'>
 				<Link to='/'>
@@ -36,7 +38,7 @@ const Header =(props)=> {
 					/>
 					<div className='info'>
 						<div className='info-left'>
-							<h1> {title} </h1>
+							<h1> {title || name} </h1>
 							<p id='rate'>
 								<i className='star fas fa-star'></i> {vote_average}{' '}
 							</p>

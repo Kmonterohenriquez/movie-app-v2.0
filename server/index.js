@@ -5,6 +5,7 @@ const express = require('express'),
 	{ SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
 	authCtrl = require('./controllers/authController'),
 	reviewCtrl = require('./controllers/reviewController'),
+	moviesAndTvCtrl = require('./controllers/moviesAndTvControllers'),
 	app = express();
 
 app.use(express.json());
@@ -34,5 +35,12 @@ app.get('/api/review/:movie_id', reviewCtrl.getMovieReviews);
 app.delete('/api/review/:review_id', reviewCtrl.deleteReview);
 // app.put('/api/review/:review_id', reviewCtrl.editReview);
 // app.get('/api/review/:id', reviewCtrl.getUserReviews);
+
+// app.post('/api/favorite_movies', moviesAndTvCtrl.addFavMovie);
+// app.get('/api/favorite_movies', moviesAndTvCtrl.getFavMovies);
+// app.post('/api/favorite_shows', moviesAndTvCtrl.addFavShow);
+// app.get('/api/favorite_shows', moviesAndTvCtrl.getFavShows);
+
+
 const port = SERVER_PORT ;
 app.listen(port, () => console.log(`Server running on port ${port}`));

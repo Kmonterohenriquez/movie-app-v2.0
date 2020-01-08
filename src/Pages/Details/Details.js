@@ -1,4 +1,4 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 // COMPONENTS
 import Header from '../../components/DetailsComponents/Header/Header';
 import Summary from '../../components/DetailsComponents/Summary/Summary';
@@ -17,7 +17,7 @@ import getItemCasts from '../../redux/actions/getItemCasts';
 import getUser from '../../redux/actions/user/getUser';
 
 import axios from 'axios';
-import './Details.sass'
+import './Details.sass';
 class Details extends Component {
 	state = {
 		type: this.props.itemType.itemType,
@@ -54,32 +54,36 @@ class Details extends Component {
 		const trailers = this.props.itemTrailers.itemTrailers;
 		const casts = this.props.itemCasts.itemCasts;
 		// const type = this.props.itemType.itemType;
-		
-		const user = this.props.user.user
+
+		const user = this.props.user.user;
 		const itemType = this.props.itemType.itemType;
 
-
-		console.log('ITEM TYPE ', itemType)
-		console.log('user from header: ', user)
+		console.log('ITEM TYPE ', itemType);
+		console.log('user from header: ', user);
 		return (
 			<div className='Details'>
 				<Header
-					title={singleDetail.title}
-					backdrop_path={singleDetail.backdrop_path}
-					poster_path={singleDetail.poster_path}
-					vote_average={singleDetail.vote_average}
-					original_language={singleDetail.original_language}
-					genres={singleDetail.genres}
-					type={itemType}
+					singleDetail={singleDetail}
 					user_id={user.user_id}
-					// movi
+					type={itemType}
 				/>
 				<div className='container '>
 					<Summary overview={singleDetail.overview} />
 					<Casts cast={casts} />
 					<Trailers trailers={trailers} />
-					<PostReview user={user} getReviews={this.getReviews} type='movie' title={singleDetail.title} id={this.props.match.params.id} />
-					<UserReviews user={user} getReviews={this.getReviews} reviews={this.state.reviews} id={this.props.match.params.id} />
+					<PostReview
+						user={user}
+						getReviews={this.getReviews}
+						type='movie'
+						title={singleDetail.title}
+						id={this.props.match.params.id}
+					/>
+					<UserReviews
+						user={user}
+						getReviews={this.getReviews}
+						reviews={this.state.reviews}
+						id={this.props.match.params.id}
+					/>
 					<PopularReviews reviews={reviews} />
 				</div>
 			</div>
@@ -105,5 +109,5 @@ export default connect(mapStateToProps, {
 	getItemReviews,
 	getItemTrailers,
 	getItemCasts,
-	getUser,
+	getUser
 })(Details);
