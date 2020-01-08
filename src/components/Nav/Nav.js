@@ -54,13 +54,13 @@ class Nav extends Component {
 			<header className='Nav '>
 				<div className='Nav-container container'>
 					<Link to='/'>
-						<div className='logo wow fadeIn' data-wow-delay='.5s'>
+						<div className='logo wow bounceInLeft' data-wow-delay='.5s'>
 							<img src={logo} alt='iFLIX' />
 						</div>
 					</Link>
 					<form
-						className='search-bar wow fadeIn'
-						data-wow-delay='.5s'
+						className='search-bar wow rubberBand'
+						data-wow-delay='.3s'
 						onSubmit={e => this.handleSearch(e)}
 					>
 						<input
@@ -72,7 +72,7 @@ class Nav extends Component {
 							<i className='fas fa-search'></i>
 						</button>
 					</form>
-					<nav className='wow fadeIn' data-wow-delay='.5s'>
+					<nav className='wow bounceInRight' data-wow-delay='.5s'>
 						<ul>
 							<Link to='/'>
 								<i className='fas fa-home'></i>

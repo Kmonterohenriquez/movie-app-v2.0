@@ -5,7 +5,7 @@ const CategorySliderCategory =()=>{
     return(
         <div className="CategorySliderCategory">
             <div className="container">
-                <h1>Favorites Movies</h1>
+                
 
             </div>
         </div>
