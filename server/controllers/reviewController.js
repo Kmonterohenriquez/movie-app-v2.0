@@ -31,6 +31,9 @@ module.exports = {
 	deleteReview: (req, res) => {
 		const { review_id } = req.params;
 		const db = req.app.get('db');
-		db.reviews.delete_review(review_id).then(res.sendStatus(200));
-	},
+		db.reviews
+			.delete_review(review_id)
+			.then(res.sendStatus(200))
+			.catch(err => res.status(500).send(err));
+	}
 };
