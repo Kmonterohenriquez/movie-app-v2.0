@@ -20,17 +20,17 @@ const Header = props => {
 	const movie_id = id;
 
 	useEffect(() => {
-		console.clear();
+		// console.clear();
 		if (user_id) {
 			Axios.get(`/api/favorite_movies/${movie_id}/${user_id}`).then(res => {
 				if (res.data[0]) {
-					setHeartToggle(true)
+					setHeartToggle(true);
 				}
-				console.log('testing', res)
+				console.log('testing', res);
 			});
 		}
-		console.log('movie checked fn updated', heartToggle, user_id);
-	}, []);
+		// console.log('movie checked fn updated', heartToggle, user_id);
+	});
 
 	let color = heartToggle ? 'red wow heartBeat' : 'white';
 

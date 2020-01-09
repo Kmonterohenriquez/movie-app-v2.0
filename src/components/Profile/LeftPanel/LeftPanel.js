@@ -9,18 +9,18 @@ import axios from 'axios';
 const LeftPanel = props => {
 	const logout = async () => {
 		await axios.post('/auth/logout').catch(err => console.log(err));
-		console.log('logged out');
+	console.log('logged out');
 		props.history.push('/');
 	};
 	const user = props.user.user;
-	console.log('left Panel result:', user.email);
+	console.log('left Panel result:', user);
 	return (
 		<div className='LeftPanel'>
 			<div className='Profile-picture-container'>
-				{/* camera */}
-				<img src='' alt='' />
-				{/* profile picture */}
-				<img src={profileImg} className='Profile-picture' alt='' />
+				<div className="change-pic">
+					<i className="fas fa-camera"></i>
+				</div>
+				<img src={user.user_picture} className='Profile-picture' alt='' />
 			</div>
 			<h1>{user.username}</h1>
 			<button className='primary-button' onClick={() => logout()}>

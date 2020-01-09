@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
-
 import { Link, withRouter } from 'react-router-dom';
 import cinema from '../../img/cinema.png';
 import lights from '../../img/lights.jpg';
 import './Login.sass';
 import { connect } from 'react-redux';
 import getUser from '../../redux/actions/user/getUser';
-// import WOW from 'wowjs';
 import axios from 'axios';
+
 
 const Login = props => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	// useEffect(() => {
-	// 	new WOW.WOW().init();
-	// });
 	const handleSubmit = e => {
 		e.preventDefault();
 		axios.post('/auth/login', { email, password }).then(res => {
@@ -25,10 +21,11 @@ const Login = props => {
 		});
 		// props.getUser({email, password)
 	};
+
 	return (
 		<div className='Login-container'>
 			<img
-				className='lights-img wow fadeIn'
+				className='lights-img'
 				// data-wow-duration='1s'
 				// data-wow-delay='1s'
 				src={lights}
