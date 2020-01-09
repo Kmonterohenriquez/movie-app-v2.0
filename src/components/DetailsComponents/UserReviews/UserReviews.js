@@ -26,6 +26,8 @@ class UserReviews extends Component {
 		// console.log(this.state.reviews)
 		console.log('reviews', this.props.reviews);
 		// const { user } = this.props;
+		console.clear()
+		console.log('hola como estas:' , this.props.reviews)
 		return (
 			<div>
 				{this.props.reviews.reverse().map(curr => (
@@ -36,7 +38,8 @@ class UserReviews extends Component {
 								<div className='Review-container'>
 									<div className='Review'>
 										<div className='Review-user-info'>
-											<i className='User-icon fas fa-user-circle'></i>
+											{/* <i className='User-icon fas fa-user-circle'></i> */}
+											{/* <div className="user-pic"><img src={curr.user_picture} alt=""/></div> */}
 											<p className='Review-author'>
 												{curr.username}
 											</p>
@@ -62,7 +65,9 @@ class UserReviews extends Component {
 							<div className='Review-container'>
 								<div className='Review'>
 									<div className='Review-user-info'>
-										<i className='User-icon fas fa-user-circle'></i>
+										{/* <i className='User-icon fas fa-user-circle'></i> */}
+											<div className="user-pic"><img src={curr.user_picture} alt=""/></div>
+										
 						<p className='Review-author'>{curr.username}</p>
 									</div>
 									<p className='Review-content'>{curr.review_content}</p>

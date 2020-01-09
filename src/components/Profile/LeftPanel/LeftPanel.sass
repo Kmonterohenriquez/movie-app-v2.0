@@ -13,15 +13,31 @@
     align-items: center
 
     .Profile-picture-container
+        position: relative
         margin-bottom: 30px
-
+        .change-pic
+            position: absolute
+            top: 5px
+            right: 5px
+            background: $secondary-color
+            width: 50px
+            height: 50px
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 50%
+            i
+                font-size: 1.7rem
+                color: white
         .Profile-picture
-            height: 120px
-            width: 120px
+            height: 150px
+            width: 150px
             object-fit: cover
             border-radius: 50%
             box-shadow: 5px 5px 10px #0000006c
-
+            // padding: px
+            border: 10px solid $secondary-color
+        
     h1 
         font-size: 1.2rem
         color: white

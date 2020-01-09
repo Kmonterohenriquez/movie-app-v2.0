@@ -9,7 +9,7 @@ module.exports = {
 		let user = await db.users.check_user(email);
 		user = user[0];
 
-		if (user.email) {
+		if (user && user.email) {
 			return res.status(500).send({ error: 'Email is already in use.' })
 		} 
 		// else if(user.password){
@@ -22,6 +22,7 @@ module.exports = {
 
 		let sessionUser = { ...newUser };
 		session.user = sessionUser;
+		res.status(200).send(newUser)
 	},
 	login: async (req, res) => {
 		const { email, password } = req.body;
