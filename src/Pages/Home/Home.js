@@ -73,6 +73,7 @@ class Home extends Component {
 			onTheAirShows = this.props.onTheAirShows.onTheAirShows,
 			popularShows = this.props.popularShows.popularShows,
 			topRatedShows = this.props.topRatedShows.topRatedShows;
+			
 		// INVOKING CAROUSEL
 		carousel();
 

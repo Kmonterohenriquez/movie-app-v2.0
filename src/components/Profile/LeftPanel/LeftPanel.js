@@ -1,5 +1,5 @@
 import React from 'react';
-import profileImg from '../../../img/profile-placeholder.jpg';
+// import profileImg from '../../../img/profile-placeholder.jpg';
 import { connect } from 'react-redux';
 import './LeftPanel.sass';
 import { withRouter } from 'react-router-dom';
