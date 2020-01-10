@@ -83,7 +83,7 @@ app.delete(
 	'/api/favorite_movies/:movie_id/:user_id',
 	moviesAndTvCtrl.deleteFavMovie
 );
-// app.get('/api/favorite_movies', moviesAndTvCtrl.getFavMovies);
+app.get('/api/favorite_movies/:user_id', moviesAndTvCtrl.getFavMovies);
 // app.post('/api/favorite_shows', moviesAndTvCtrl.addFavShow);
 // app.get('/api/favorite_shows', moviesAndTvCtrl.getFavShows);
 
