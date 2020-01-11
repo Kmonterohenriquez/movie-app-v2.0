@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import getUser from '../../../redux/actions/user/getUser';
-import './FavoriteMovies.sass' 
+import './FavoriteMovies.sass';
 // import
 const FavoriteMovies = props => {
 	const [favMovies, setFavMovies] = useState([]);
@@ -19,24 +19,30 @@ const FavoriteMovies = props => {
 		};
 		getFavMovies();
 		console.log('Use Effect updated from Fav Movies');
-	},[user_id]);
-
+	}, []);
 
 	return (
 		<div className='FavoriteMovies' style={{ color: 'white' }}>
 			<h1>Favorite Movies</h1>
-			{favMovies.map(curr => (
-				<div key={curr.movie_id}>
-					<img
-						src={`http://image.tmdb.org/t/p/w300/${curr.movie_pic}`}
-						alt={`${curr.movie_id} backdrop`}
-					/>
-					<p>
-						<i className='star fas fa-star'></i>
-						{curr.movie_rate}
-					</p>
-				</div>
-			))}
+			<div className='grid-fav-movie'>
+				{favMovies.map(curr => (
+					<div className='fav-movie-card ' key={curr.movie_id}>
+						<img
+							src={`http://image.tmdb.org/t/p/w300/${curr.movie_pic}`}
+							alt={`${curr.movie_id} backdrop`}
+						/>
+						<div className='info'>
+							<p className='movie-name'>
+								Movie Name<i className='star fas fa-star'></i>
+								{curr.movie_rate}
+							</p>
+							<div className='btn-container'>
+								<button className="delete-btn">Delete</button>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };
