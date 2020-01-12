@@ -1,0 +1,53 @@
+.FavoriteMovies
+    h1 
+        font-size: 2.5rem
+        margin-top: 60px
+        color: white
+        text-align: center
+        position: relative
+        // background: red
+        // width: 100px
+        &:after 
+            position: absolute
+            content: ''
+            bottom: -15px
+            left: 50%
+            transform: translate(-50%, 0)
+            height: 5px
+            width: 60px
+            background: white
+            border-radius: 10px
+
+
+    .grid-fav-movie
+        margin-top: 90px
+        display: grid 
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+        grid-gap: 30px
+        justify-items: center
+        align-items: center
+
+        .fav-movie-card 
+            overflow: hidden
+            border-radius: 10px
+            background: #222831
+            width: 300px
+            height: 300px
+            font-weight: 700
+            color: white
+
+            .movie-name 
+                font-size: 1.1rem
+                text-transform: capitalize
+
+            .info
+                padding: 20px 10px
+
+                .btn-container
+                    display: flex
+                    justify-content: flex-end
+    
+    .star 
+        margin-left: 10px
+        color: #FFFF00
+        margin-right: 5px

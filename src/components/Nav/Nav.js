@@ -45,11 +45,7 @@ class Nav extends Component {
 		// this.props.history.push('/login');
 	};
 	render() {
-		console.log('User result:', this.props.user.user);
-		console.log(
-			'User result:',
-			this.props.user.user === undefined ? true : false
-		);
+
 		return (
 			<header className='Nav '>
 				<div className='Nav-container container'>

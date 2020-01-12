@@ -23,11 +23,8 @@ class UserReviews extends Component {
 		this.props.getReviews();
 	};
 	render() {
-		// console.log(this.state.reviews)
-		console.log('reviews', this.props.reviews);
-		// const { user } = this.props;
-		console.clear()
-		console.log('hola como estas:' , this.props.reviews)
+		console.clear();
+		console.log('hola como estas:', this.props.reviews);
 		return (
 			<div>
 				{this.props.reviews.reverse().map(curr => (
@@ -38,11 +35,8 @@ class UserReviews extends Component {
 								<div className='Review-container'>
 									<div className='Review'>
 										<div className='Review-user-info'>
-											{/* <i className='User-icon fas fa-user-circle'></i> */}
-											{/* <div className="user-pic"><img src={curr.user_picture} alt=""/></div> */}
-											<p className='Review-author'>
-												{curr.username}
-											</p>
+											<div className="user-pic"><img src={curr.user_picture} alt=""/></div>
+											<p className='Review-author'>{curr.username}</p>
 										</div>
 										<textarea cols='30' rows='10'>
 											{curr.review_content}
@@ -66,25 +60,29 @@ class UserReviews extends Component {
 								<div className='Review'>
 									<div className='Review-user-info'>
 										{/* <i className='User-icon fas fa-user-circle'></i> */}
-											<div className="user-pic"><img src={curr.user_picture} alt=""/></div>
-										
-						<p className='Review-author'>{curr.username}</p>
+										<div className='user-pic'>
+											<img src={curr.user_picture} alt='' />
+										</div>
+
+										<p className='Review-author'>{curr.username}</p>
 									</div>
 									<p className='Review-content'>{curr.review_content}</p>
-									<div className='Review-btns'>
-										<button
-											className='edit-btn'
-											onClick={() => this.editToggle(curr.review_id)}
-										>
-											Edit
-										</button>
-										<button
-											className='delete-btn'
-											onClick={() => this.deleteReview(curr.review_id)}
-										>
-											Delete
-										</button>
-									</div>
+									{this.props.user.user_id === curr.user_id ? (
+										<div className='Review-btns'>
+											<button
+												className='edit-btn'
+												onClick={() => this.editToggle(curr.review_id)}
+											>
+												Edit
+											</button>
+											<button
+												className='delete-btn'
+												onClick={() => this.deleteReview(curr.review_id)}
+											>
+												Delete
+											</button>
+										</div>
+									) : null}
 								</div>
 							</div>
 						)}
