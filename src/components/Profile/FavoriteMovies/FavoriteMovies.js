@@ -7,19 +7,19 @@ import './FavoriteMovies.sass';
 const FavoriteMovies = props => {
 	const [favMovies, setFavMovies] = useState([]);
 
-	const { user_id } = props.user.user;
-
 	useEffect(() => {
-		const getFavMovies = async () => {
-			await Axios.get(`/api/favorite_movies/${user_id}`)
-				.then(res => {
-					setFavMovies(res.data);
-				})
-				.catch(err => console.log(err));
-		};
 		getFavMovies();
 		console.log('Use Effect updated from Fav Movies');
 	}, []);
+
+	const { user_id } = props.user.user;
+	const getFavMovies = async () => {
+		await Axios.get(`/api/favorite_movies/${user_id}`)
+			.then(res => {
+				setFavMovies(res.data);
+			})
+			.catch(err => console.log(err));
+	};
 
 	return (
 		<div className='FavoriteMovies' style={{ color: 'white' }}>

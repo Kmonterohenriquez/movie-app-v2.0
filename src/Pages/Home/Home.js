@@ -20,18 +20,22 @@ import setItemType from '../../redux/actions/setItemType';
 import carousel from '../../components/carousel/carousel';
 import Showcase from '../../components/Showcase/Showcase';
 import Footer from '../../components/Footer/Footer';
+import Axios from 'axios';
 // import setItemType from '../../redux/actions/setItemType';
 
 class Home extends Component {
 	// const [categoryToggle, setCategoryToggle] = useState(true);
 	state = {
-		categoryToggle: true
+		categoryToggle: true,
+		
 	};
 
 	componentDidMount() {
 		this.handleMovies();
 		this.handleTv();
+		
 	}
+
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.categoryToggle !== prevState.categoryToggle) {
 			// console.log('page updatedL category toggle');
@@ -76,7 +80,6 @@ class Home extends Component {
 			
 		// INVOKING CAROUSEL
 		carousel();
-
 		return (
 			<div className='Home'>
 				<Showcase />
@@ -133,6 +136,7 @@ class Home extends Component {
 						)}
 					</div>
 				</div>
+			
 				<Footer />
 			</div>
 		);
