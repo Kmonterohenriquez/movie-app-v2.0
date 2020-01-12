@@ -20,7 +20,7 @@ import setItemType from '../../redux/actions/setItemType';
 import carousel from '../../components/carousel/carousel';
 import Showcase from '../../components/Showcase/Showcase';
 import Footer from '../../components/Footer/Footer';
-import Axios from 'axios';
+// import Axios from 'axios';
 // import setItemType from '../../redux/actions/setItemType';
 
 class Home extends Component {
@@ -77,7 +77,8 @@ class Home extends Component {
 			onTheAirShows = this.props.onTheAirShows.onTheAirShows,
 			popularShows = this.props.popularShows.popularShows,
 			topRatedShows = this.props.topRatedShows.topRatedShows;
-			
+			console.clear()
+			console.log('API KEY.....', process.env.REACT_APP_API_KEY)
 		// INVOKING CAROUSEL
 		carousel();
 		return (
