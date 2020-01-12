@@ -14,9 +14,8 @@ const express = require('express'),
 	reviewCtrl = require('./controllers/reviewController'),
 	moviesAndTvCtrl = require('./controllers/moviesAndTvControllers'),
 	aws = require('aws-sdk'),
-	path = require('path'),
 	app = express();
-	app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(express.json());
 
 // SESSION
@@ -87,9 +86,6 @@ app.delete(
 app.get('/api/favorite_movies/:user_id', moviesAndTvCtrl.getFavMovies);
 // app.post('/api/favorite_shows', moviesAndTvCtrl.addFavShow);
 // app.get('/api/favorite_shows', moviesAndTvCtrl.getFavShows);
-
-// HOSTING
-
 
 const port = SERVER_PORT;
 app.listen(port, () => console.log(`Server running on port ${port}`));
