@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { connect } from 'react-redux';
 import getUser from '../../../redux/actions/user/getUser';
 import './FavoriteMovies.sass';
+import ItemsContainer from '../ItemsContainer/ItemsContainer';
 // import
 const FavoriteMovies = props => {
 	const [favMovies, setFavMovies] = useState([]);
@@ -11,10 +12,10 @@ const FavoriteMovies = props => {
 
 	useEffect(() => {
 		getFavMovies();
-		console.log('useEffect 1 running')
+		// console.log('useEffect 1 running');
 	}, []);
 	useEffect(() => {
-		console.log('useEffect 2 running')
+		// console.log('useEffect 2 running');
 	}, [favMovies]);
 
 	const getFavMovies = async () => {
@@ -29,35 +30,15 @@ const FavoriteMovies = props => {
 		await Axios.delete(
 			`/api/favorite_movies/${movie_id}/${user_id}`
 		).catch(err => console.log(err));
-		getFavMovies()
+		getFavMovies();
 	};
 	return (
 		<div className='FavoriteMovies' style={{ color: 'white' }}>
-			<h1>Favorite Movies</h1>
-			<div className='grid-fav-movie'>
-				{favMovies.map(curr => (
-					<div className='fav-movie-card ' key={curr.movie_id}>
-						<img
-							src={`http://image.tmdb.org/t/p/w300/${curr.movie_pic}`}
-							alt={`${curr.movie_id} backdrop`}
-						/>
-						<div className='info'>
-							<p className='movie-name'>
-								Movie Name<i className='star fas fa-star'></i>
-								{curr.movie_rate}
-							</p>
-							<div className='btn-container'>
-								<button
-									className='delete-btn'
-									onClick={() => deleteFavMovies(curr.movie_id)}
-								>
-									Delete
-								</button>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
+			<ItemsContainer
+				itemsInfo={favMovies}
+				title='Favorite Movies'
+				deleteFn={deleteFavMovies}
+			/>
 		</div>
 	);
 };

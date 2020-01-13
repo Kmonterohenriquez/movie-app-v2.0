@@ -1,4 +1,4 @@
-INSERT INTO fav_movies(
+INSERT INTO fav_shows(
     show_id,
     show_pic,
     show_rate,

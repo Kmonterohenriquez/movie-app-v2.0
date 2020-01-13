@@ -18,7 +18,7 @@ create table fav_movies(
     fav_movie_id serial PRIMARY KEY,
     movie_id int,
     movie_pic VARCHAR(250),
-    movie_rate int,
+    movie_rate numeric,
     user_id int REFERENCES theater_users(user_id)
 );
 
@@ -26,6 +26,6 @@ create table fav_shows(
     fav_shows_id serial PRIMARY KEY,
     show_id int,
     show_pic VARCHAR(250),
-    show_rate int,
+    show_rate numeric,
     user_id int REFERENCES theater_users(user_id)
 );

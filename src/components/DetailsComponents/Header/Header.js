@@ -18,25 +18,31 @@ const Header = props => {
 	} = props.singleDetail;
 	const { user_id } = props;
 	const movie_id = id;
+	const show_id = id;
 
 	useEffect(() => {
 		// console.clear();
-		if (user_id) {
+		if (user_id && props.type === 'movie') {
 			Axios.get(`/api/favorite_movies/${movie_id}/${user_id}`).then(res => {
 				if (res.data[0]) {
 					setHeartToggle(true);
 				}
-				console.log('testing', res);
+			});
+		} else if (user_id && props.type === 'tv') {
+			Axios.get(`/api/favorite_shows/${show_id}/${user_id}`).then(res => {
+				if (res.data[0]) {
+					setHeartToggle(true);
+				}
 			});
 		}
 		// console.log('movie checked fn updated', heartToggle, user_id);
-	});
+});
 
 	let color = heartToggle ? 'red wow heartBeat' : 'white';
 
 	const handleFavBtn = async (id, backdrop_path, vote_average, user_id) => {
-		if (user_id && heartToggle === false) {
-			// ADD it to DB below this line
+		if (user_id && heartToggle === false && props.type === 'movie') {
+			// ADD Fav Movie to DB below this line
 			await Axios.post('/api/favorite_movies', {
 				movie_id: id, // Movie ID
 				movie_pic: backdrop_path,
@@ -44,24 +50,35 @@ const Header = props => {
 				user_id
 			});
 			setHeartToggle(!heartToggle);
-
-			// ADD it to redux below this line
-			console.log('This is one of your fav movie');
-			console.log('IMPORTANT INFO: ', id, backdrop_path, vote_average, user_id);
-		} else if (user_id && heartToggle === true) {
-			// ADD it to  redux below this line
+		} else if (user_id && heartToggle === true && props.type === 'movie') {
+			// DELETE Fav Movie from DB below this line
 			const movie_id = id; //Movie ID
 			await Axios.delete(
 				`/api/favorite_movies/${movie_id}/${user_id}`
 			).catch(err => console.log(err));
 			setHeartToggle(!heartToggle);
-
-			// DELETE it from redux below this line
+		} else if (user_id && heartToggle === false && props.type === 'tv') {
+			// ADD Fav Show to DB below this line
+			await Axios.post('/api/favorite_shows', {
+				show_id: id, // Show ID
+				show_pic: backdrop_path,
+				show_rate: vote_average,
+				user_id
+			});
+			setHeartToggle(!heartToggle);
+			console.clear();
+			console.log('This is one of your fav shows');
+		} else if (user_id && heartToggle === true && props.type === 'tv') {
+			// DELETE Fav Show from DB below this line
+			const show_id = id; //Show ID
+			await Axios.delete(
+				`/api/favorite_shows/${show_id}/${user_id}`
+			).catch(err => console.log(err));
+			setHeartToggle(!heartToggle);
 		} else if (!user_id) {
 			console.log('Must be logged in to use this feature.');
 		}
 	};
-
 	return (
 		<div className='Header-container'>
 			<Link to='/'>

@@ -23,8 +23,6 @@ class UserReviews extends Component {
 		this.props.getReviews();
 	};
 	render() {
-		console.clear();
-		console.log('hola como estas:', this.props.reviews);
 		return (
 			<div>
 				{this.props.reviews.reverse().map(curr => (

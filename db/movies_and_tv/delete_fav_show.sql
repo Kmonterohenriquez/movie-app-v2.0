@@ -1,3 +1,2 @@
 delete from fav_shows
-where user_id = $1;
-
+where show_id= $1 AND user_id = $2 ;
