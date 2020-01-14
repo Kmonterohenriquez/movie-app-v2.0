@@ -35,6 +35,7 @@ module.exports = {
 			.delete_review(review_id)
 			.then(res.sendStatus(200))
 			.catch(err => res.status(500).send(err));
+<<<<<<< HEAD
 	},
 	editReview: async (req, res) => {
 		const { review_id } = req.params;
@@ -46,5 +47,7 @@ module.exports = {
 			.edit_review(review_id, review_content)
 			.then(review=> res.status(200).send(review))
 			.catch(err => res.status(500).send(err));
+=======
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 	}
 };

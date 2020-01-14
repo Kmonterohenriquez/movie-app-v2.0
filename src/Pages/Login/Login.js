@@ -7,6 +7,10 @@ import { connect } from 'react-redux';
 import getUser from '../../redux/actions/user/getUser';
 import axios from 'axios';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 const Login = props => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -15,13 +19,30 @@ const Login = props => {
 		e.preventDefault();
 		axios.post('/auth/login', { email, password }).then(res => {
 			props.getUser(res.data);
+<<<<<<< HEAD
 			props.history.push('/');
 		});
+=======
+			console.log(res.data);
+			props.history.push('/');
+		});
+		// props.getUser({email, password)
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 	};
 
 	return (
 		<div className='Login-container'>
+<<<<<<< HEAD
 			<img className='lights-img' src={lights} alt='lights' />
+=======
+			<img
+				className='lights-img'
+				// data-wow-duration='1s'
+				// data-wow-delay='1s'
+				src={lights}
+				alt='lights'
+			/>
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 			<Link to='/'>
 				<i
 					className='arrow fas fa-chevron-left wow bounceInLeft'

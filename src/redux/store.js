@@ -22,9 +22,12 @@ import userReducer from './reducers/userReducer';
 import createUserReducer from './reducers/createUserReducer';
 import searchResultReducer from './reducers/searchResultReducer';
 
+<<<<<<< HEAD
 // Search Value
 import getSearchValueReducer from './reducers/searchValueReducer'
 
+=======
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 const rootReducer = combineReducers({
 	getPopularMovies,
 	getUpcomingMovies,
@@ -41,8 +44,12 @@ const rootReducer = combineReducers({
 	itemCastsReducer,
 	userReducer,
 	createUserReducer,
+<<<<<<< HEAD
 	searchResultReducer,
 	getSearchValueReducer
+=======
+	searchResultReducer
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 });
 
 const middleware = [thunk];

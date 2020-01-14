@@ -6,8 +6,13 @@ class Header extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+<<<<<<< HEAD
             sortBy: 'popularity.asc',
             voteAverage: 5,
+=======
+            sortBy: null,
+            voteAverage: null,
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
             withPeople: null,
             withGenres: null,
             withKeywords: null,
@@ -15,6 +20,7 @@ class Header extends Component {
 		};
 	}
 	handleSubmit=(e)=> {
+<<<<<<< HEAD
 		// console.log('search btn pressed')
         e.preventDefault();
         const{sortBy, voteAverage, withPeople, withGenres, withKeywords, year} = this.state;
@@ -34,6 +40,24 @@ class Header extends Component {
 		console.log('from header discover: ', this.state.sortBy)
 		console.log('vote discover: ', this.state.voteAverage)
 
+=======
+		console.log('search btn pressed')
+        e.preventDefault();
+        const{sortBy, voteAverage, withPeople, withGenres, withKeywords, year} = this.state;
+        this.props.getFilterInfo(sortBy, voteAverage, withPeople, withGenres, withKeywords, year);
+	}
+
+	handleChange=(e)=> {
+		if (e.target.name === 'sortBy') this.setState({ sortBy: e.target.value });
+        if (e.target.name === 'voteAverage') this.setState({ voteAverage: e.target.value });
+        if (e.target.name === 'withPeople') this.setState({ withPeople: e.target.value });
+        if (e.target.name === 'withGenres') this.setState({ withGenres: e.target.value });
+        if (e.target.name === 'withKeywords') this.setState({ withKeywords: e.target.value });
+		if (e.target.name === 'year') this.setState({ year: e.target.value });
+		// this.setState({[e.target.name]: e.target.value})
+	}
+	render() {
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 		return (
 			<div className='Header'>
 				<h1>Discover</h1>

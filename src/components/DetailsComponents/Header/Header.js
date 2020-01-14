@@ -18,15 +18,23 @@ const Header = props => {
 	} = props.singleDetail;
 	const { user_id } = props;
 	const movie_id = id;
+<<<<<<< HEAD
 	const show_id = id;
 
 	useEffect(() => {
 		// console.clear();
 		if (user_id && props.type === 'movie') {
+=======
+
+	useEffect(() => {
+		// console.clear();
+		if (user_id) {
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 			Axios.get(`/api/favorite_movies/${movie_id}/${user_id}`).then(res => {
 				if (res.data[0]) {
 					setHeartToggle(true);
 				}
+<<<<<<< HEAD
 			});
 		} else if (user_id && props.type === 'tv') {
 			Axios.get(`/api/favorite_shows/${show_id}/${user_id}`).then(res => {
@@ -37,27 +45,52 @@ const Header = props => {
 		}
 		// console.log('movie checked fn updated', heartToggle, user_id);
 });
+=======
+				console.log('testing', res);
+			});
+		}
+		// console.log('movie checked fn updated', heartToggle, user_id);
+	});
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 
 	let color = heartToggle ? 'red wow heartBeat' : 'white';
 
 	const handleFavBtn = async (id, backdrop_path, vote_average, user_id) => {
+<<<<<<< HEAD
 		if (user_id && heartToggle === false && props.type === 'movie') {
 			// ADD Fav Movie to DB below this line
+=======
+		if (user_id && heartToggle === false) {
+			// ADD it to DB below this line
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 			await Axios.post('/api/favorite_movies', {
 				movie_id: id, // Movie ID
 				movie_pic: backdrop_path,
 				movie_rate: vote_average,
+<<<<<<< HEAD
 				user_id,
 				movie_name: title
 			});
 			setHeartToggle(!heartToggle);
 		} else if (user_id && heartToggle === true && props.type === 'movie') {
 			// DELETE Fav Movie from DB below this line
+=======
+				user_id
+			});
+			setHeartToggle(!heartToggle);
+
+			// ADD it to redux below this line
+			console.log('This is one of your fav movie');
+			console.log('IMPORTANT INFO: ', id, backdrop_path, vote_average, user_id);
+		} else if (user_id && heartToggle === true) {
+			// ADD it to  redux below this line
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 			const movie_id = id; //Movie ID
 			await Axios.delete(
 				`/api/favorite_movies/${movie_id}/${user_id}`
 			).catch(err => console.log(err));
 			setHeartToggle(!heartToggle);
+<<<<<<< HEAD
 		} else if (user_id && heartToggle === false && props.type === 'tv') {
 			// ADD Fav Show to DB below this line
 			await Axios.post('/api/favorite_shows', {
@@ -77,10 +110,18 @@ const Header = props => {
 				`/api/favorite_shows/${show_id}/${user_id}`
 			).catch(err => console.log(err));
 			setHeartToggle(!heartToggle);
+=======
+
+			// DELETE it from redux below this line
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 		} else if (!user_id) {
 			console.log('Must be logged in to use this feature.');
 		}
 	};
+<<<<<<< HEAD
+=======
+
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 	return (
 		<div className='Header-container'>
 			<Link to='/'>

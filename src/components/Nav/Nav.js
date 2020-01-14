@@ -8,7 +8,11 @@ import getMovieSearch from '../../redux/actions/getSearchItem/getMovieSearch';
 import getTvSearch from '../../redux/actions/getSearchItem/getTvSearch';
 import WOW from 'wowjs';
 import logo from '../../img/theater_logo.png';
+<<<<<<< HEAD
 import getSearchValue from '../../redux/actions/getSearchValue'
+=======
+
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 class Nav extends Component {
 	state = {
 		search: ''
@@ -19,8 +23,14 @@ class Nav extends Component {
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.search !== prevState.search) {
 			this.props.getMovieSearch(this.state.search);
+<<<<<<< HEAD
 			this.props.getSearchValue(this.state.search)
 		}
+=======
+		}
+		// else if (this.state.search === '') {
+		// }
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 
 		if (this.props.user.user !== prevProps.user.user) {
 			// console.clear()
@@ -44,8 +54,16 @@ class Nav extends Component {
 		// this.props.history.push('/login');
 	};
 	render() {
+<<<<<<< HEAD
 		// console.clear()
 		// console.log('from nav:', this.props.searchValue.newValue)
+=======
+		console.log('User result:', this.props.user.user);
+		console.log(
+			'User result:',
+			this.props.user.user === undefined ? true : false
+		);
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 		return (
 			<header className='Nav '>
 				<div className='Nav-container container'>
@@ -106,10 +124,18 @@ const mapStateToProps = state => ({
 	moviesAndShows: [
 		...state.searchResultReducer.movieSearch
 		// ...state.searchResultReducer.tvSearch
+<<<<<<< HEAD
 	],
 	searchValue: state.getSearchValueReducer
 });
 
 export default withRouter(
 	connect(mapStateToProps, { getUser, getMovieSearch, getTvSearch, getSearchValue })(Nav)
+=======
+	]
+});
+
+export default withRouter(
+	connect(mapStateToProps, { getUser, getMovieSearch, getTvSearch })(Nav)
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 );

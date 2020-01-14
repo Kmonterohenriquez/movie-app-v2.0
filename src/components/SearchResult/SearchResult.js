@@ -10,14 +10,22 @@ class SearchResult extends Component {
 		new WOW.WOW().init();
 	}
 	render() {
+<<<<<<< HEAD
 		const {newValue}=this.props.searchValue
+=======
+		console.log('from search result', this.props.moviesAndShows);
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 		let { moviesAndShows } = this.props;
 		return (
 			<div className='SearchResult '>
 				<div className='container'>
 					<div className='main-title'>
 						<h1 className='wow zoomInUp'>
+<<<<<<< HEAD
 		Search result for <span>{newValue? newValue: '...'}</span>
+=======
+							Search result for <span>Avenger</span>
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 						</h1>
 					</div>
 					{!moviesAndShows.length ? (
@@ -59,7 +67,11 @@ const mapStateToProps = state => ({
 	moviesAndShows: [
 		...state.searchResultReducer.movieSearch
 		// ...state.searchResultReducer.tvSearch
+<<<<<<< HEAD
 	],
 	searchValue: state.getSearchValueReducer
+=======
+	]
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 });
 export default connect(mapStateToProps)(SearchResult);

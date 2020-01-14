@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
@@ -56,3 +57,17 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { getUser })(FavoriteTvShows);
+=======
+import React from 'react'
+
+const FavoriteTvShows = () => {
+    return (
+        <div className='FavoriteTvShows'>
+            <h1>Favorite Tv Shows component</h1>
+            <h1>Favorite Tv Shows component</h1>
+        </div>
+    )
+}
+
+export default FavoriteTvShows
+>>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
