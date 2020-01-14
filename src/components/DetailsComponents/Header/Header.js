@@ -47,7 +47,8 @@ const Header = props => {
 				movie_id: id, // Movie ID
 				movie_pic: backdrop_path,
 				movie_rate: vote_average,
-				user_id
+				user_id,
+				movie_name: title
 			});
 			setHeartToggle(!heartToggle);
 		} else if (user_id && heartToggle === true && props.type === 'movie') {
@@ -63,7 +64,8 @@ const Header = props => {
 				show_id: id, // Show ID
 				show_pic: backdrop_path,
 				show_rate: vote_average,
-				user_id
+				user_id,
+				tv_name: name
 			});
 			setHeartToggle(!heartToggle);
 			console.clear();

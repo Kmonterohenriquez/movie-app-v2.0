@@ -8,7 +8,7 @@ import getMovieSearch from '../../redux/actions/getSearchItem/getMovieSearch';
 import getTvSearch from '../../redux/actions/getSearchItem/getTvSearch';
 import WOW from 'wowjs';
 import logo from '../../img/theater_logo.png';
-
+import getSearchValue from '../../redux/actions/getSearchValue'
 class Nav extends Component {
 	state = {
 		search: ''
@@ -19,9 +19,8 @@ class Nav extends Component {
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.search !== prevState.search) {
 			this.props.getMovieSearch(this.state.search);
+			this.props.getSearchValue(this.state.search)
 		}
-		// else if (this.state.search === '') {
-		// }
 
 		if (this.props.user.user !== prevProps.user.user) {
 			// console.clear()
@@ -45,7 +44,8 @@ class Nav extends Component {
 		// this.props.history.push('/login');
 	};
 	render() {
-
+		// console.clear()
+		// console.log('from nav:', this.props.searchValue.newValue)
 		return (
 			<header className='Nav '>
 				<div className='Nav-container container'>
@@ -106,9 +106,10 @@ const mapStateToProps = state => ({
 	moviesAndShows: [
 		...state.searchResultReducer.movieSearch
 		// ...state.searchResultReducer.tvSearch
-	]
+	],
+	searchValue: state.getSearchValueReducer
 });
 
 export default withRouter(
-	connect(mapStateToProps, { getUser, getMovieSearch, getTvSearch })(Nav)
+	connect(mapStateToProps, { getUser, getMovieSearch, getTvSearch, getSearchValue })(Nav)
 );

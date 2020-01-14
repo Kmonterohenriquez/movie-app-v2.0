@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Discover.sass';
 import axios from 'axios';
 
-import Header from '../../components/Discover/Header/Header';
+// import Header from '../../components/Discover/Header/Header';
 import MoviesContainer from '../../components/Discover/MoviesContainer/MoviesContainer';
 import Pagination from '../../components/Discover/Pagination/Pagination';
 
@@ -21,28 +21,20 @@ class Discover extends Component {
 		this.getMovies();
 	}
 	componentDidUpdate(prevProps, prevState) {
-		if (this.state.page !== prevState.page){
-			this.getMovies()
+		if (this.state.page !== prevState.page) {
+			this.getMovies();
 		}
-	
 	}
-	getFilterInfo = (
-		sortBy,
-		voteAverage,
-		withPeople,
-		withGenres,
-		withKeywords,
-		year
-	) => {
-		if (sortBy) this.setState({ sortBy });
-		if (voteAverage) this.setState({ voteAverage });
-		if (withPeople) this.setState({ withPeople });
-		if (withGenres) this.setState({ withGenres });
-		if (withKeywords) this.setState({ withKeywords });
-		if (year) this.setState({ year });
+
+	handleSubmit = e => {
+		e.preventDefault();
+		this.getMovies();
 	};
 
-getMovies=()=> {
+	handleChange = e => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
+	getMovies = () => {
 		const key_API = process.env.REACT_APP_API_KEY;
 		let { page } = this.state;
 		axios
@@ -60,12 +52,11 @@ getMovies=()=> {
 				}${this.state.year ? `year=${this.state.year}` : ''}`
 			)
 			.then(res => {
-				// console.log('Discover page result: ', res.data.results);
 				let movies = res.data.results;
 				this.setState({ movies });
 			})
 			.catch(error => console.log(error));
-	}
+	};
 
 	handlePagination = pageTransition => {
 		if (this.state.page === 1 && pageTransition === '-') {
@@ -78,10 +69,74 @@ getMovies=()=> {
 	};
 
 	render() {
-		console.log('render')
+		console.clear();
+		console.log('sortby from discover', this.state.sortBy);
 		return (
 			<div className='Search'>
-				<Header getFilterInfo={this.getFilterInfo} />
+				<div className='Header'>
+					<h1>Discover</h1>
+					<hr />
+					<form onSubmit={this.handleSubmit}>
+						<div className='search-filter'>
+							<select name='sortBy' onChange={this.handleChange}>
+								<option value='popularity.asc'>Popularity Ascending</option>
+								<option value='popularity.desc'>Popularity descending</option>
+								<option value='release_date.asc'>Release Date Ascending</option>
+								<option value='release_date.desc'>
+									Release Date Descending
+								</option>
+								<option value='revenue.asc'>Revenue Ascending</option>
+								<option value='revenue.desc'>Revenue Descending</option>
+								<option value='vote_average.asc'>Vote Average Ascending</option>
+								<option value='vote_average.desc'>
+									Vote Average Descending
+								</option>
+							</select>
+							<input
+								name='voteAverage'
+								onChange={this.handleChange}
+								type='numeric'
+								placeholder='Enter rating'
+								min='0'
+								max='10'
+							/>
+							<input
+								name='withPeople'
+								type='text'
+								placeholder='People involved'
+							/>
+
+							<select
+								name='withGenres'
+								onChange={this.handleChange}
+								placeholder='Enter Genres'
+							>
+								<option value='Drama'>Drama</option>
+								<option value='Action'>Action</option>
+								<option value='Comedy'>Comedy</option>
+								<option value='Fantasy'>Fantasy</option>
+								<option value='Historical'>Historical</option>
+								<option value='Adventure'>Adventure</option>
+								<option value=''></option>
+							</select>
+							<input
+								name='withKeywords'
+								onChange={this.handleChange}
+								type='text'
+								placeholder='Keywords'
+							/>
+							<input
+								name='year'
+								onChange={this.handleChange}
+								type='numeric'
+								placeholder='Enter Year'
+							/>
+						</div>
+						<div className='submit-container'>
+							<button type='submit'> Search </button>
+						</div>
+					</form>
+				</div>
 				{this.state.movies.length >= 1 ? (
 					<>
 						<MoviesContainer movies={this.state.movies} />

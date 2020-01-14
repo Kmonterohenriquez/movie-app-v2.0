@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5055a0af-8c2c-41bc-978d-129b3dcc0374" name="Default Changelist" comment="" />
+    <list default="true" id="5055a0af-8c2c-41bc-978d-129b3dcc0374" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Pages/Discover/Discover.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Discover/Discover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Discover/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Discover/Header/Header.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

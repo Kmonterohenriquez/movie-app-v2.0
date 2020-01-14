@@ -9,6 +9,7 @@ import Signup from './Pages/Register/Register';
 import Discover from './Pages/Discover/Discover';
 import SearchResult from './components/SearchResult/SearchResult';
 import Profile from './components/Profile/Profile'
+// import Person from './Pages/Person/Person'
 
 export default (
 	<Switch>
@@ -19,5 +20,6 @@ export default (
 		<Route component={Details} path='/details/:id' />
 		<Route component={SearchResult} path='/search_result' />
 		<Route component={Profile} path='/profile' />
+		{/* <Route component={Person} path='/person/:id'/> */}
 	</Switch>
 );

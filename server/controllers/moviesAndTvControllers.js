@@ -9,13 +9,13 @@ module.exports = {
 	},
 	addFavMovie: async (req, res) => {
 		// Bringing info from the frond end
-		const { movie_id, movie_pic, movie_rate, user_id } = req.body;
+		const { movie_id, movie_pic, movie_rate, user_id, movie_name } = req.body;
 
 		// set db to a variable
 		const db = req.app.get('db');
 
 		await db.movies_and_tv
-			.add_fav_movie(movie_id, movie_pic, movie_rate, user_id)
+			.add_fav_movie(movie_id, movie_pic, movie_rate, user_id, movie_name)
 			.then(res.sendStatus(200))
 			.catch(err => res.status(500).send(err));
 	},
@@ -46,11 +46,11 @@ module.exports = {
 			.catch(err => res.status(500).send(err));
 	},
 	addFavShow: async (req, res) => {
-		const { show_id, show_pic, show_rate, user_id } = req.body;
+		const { show_id, show_pic, show_rate, user_id, tv_name } = req.body;
 		const db = req.app.get('db');
 
 		await db.movies_and_tv
-			.add_fav_show(show_id, show_pic, show_rate, user_id)
+			.add_fav_show(show_id, show_pic, show_rate, user_id, tv_name)
 			.then(res.sendStatus(200))
 			.catch(err => res.status(500).send(err));
 	},

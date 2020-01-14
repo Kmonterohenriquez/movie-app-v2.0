@@ -6,9 +6,10 @@ import axios from 'axios';
 class UserReviews extends Component {
 	state = {
 		editToggle: false,
-		editingReview: 0
+		editingReview: 0,
+		newReviewContent: ''
 	};
-
+	
 	deleteReview = review_id => {
 		axios.delete(`/api/review/${review_id}`).catch(err => console.log(err));
 		this.props.getReviews();
@@ -18,14 +19,22 @@ class UserReviews extends Component {
 		this.setState({ editingReview: review_id });
 	};
 	saveChange = review_id => {
-		axios.put(`/api/review/${review_id}`).catch(err => console.log(err));
+		const { newReviewContent } = this.state;
+		axios
+			.put(`/api/review/${review_id}`, { newReviewContent })
+			.catch(err => console.log(err));
 		this.setState({ editToggle: !this.state.editToggle });
 		this.props.getReviews();
 	};
+	changeHandler(e) {
+		this.setState({ newReviewContent: e.target.value });
+		this.props.getReviews();
+	}
+
 	render() {
 		return (
 			<div>
-				{this.props.reviews.reverse().map(curr => (
+				{this.props.reviews.map((curr, i) => (
 					<div key={curr.review_id}>
 						{this.state.editToggle &&
 						curr.review_id === this.state.editingReview ? (
@@ -33,12 +42,17 @@ class UserReviews extends Component {
 								<div className='Review-container'>
 									<div className='Review'>
 										<div className='Review-user-info'>
-											<div className="user-pic"><img src={curr.user_picture} alt=""/></div>
+											<div className='user-pic'>
+												<img src={curr.user_picture} alt='' />
+											</div>
 											<p className='Review-author'>{curr.username}</p>
 										</div>
-										<textarea cols='30' rows='10'>
-											{curr.review_content}
-										</textarea>
+										<input
+											type='text'
+											onChange={e => this.changeHandler(e)}
+											placeholder={curr.review_content}
+										/>
+
 										<div className='Review-btns'>
 											<button
 												className='edit-btn'

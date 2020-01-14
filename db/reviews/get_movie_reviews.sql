@@ -9,4 +9,5 @@ select
     user_picture
 from reviews r
 join theater_users u on r.user_id = u.user_id
-where r.movie_id = $1;
+where r.movie_id = $1
+order by review_id desc;
