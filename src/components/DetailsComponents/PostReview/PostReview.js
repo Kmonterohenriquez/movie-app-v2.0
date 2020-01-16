@@ -35,11 +35,8 @@ class PostReview extends Component {
 			this.setState({ reviewContent: '' });
 			this.props.getReviews();
 		} else {
-<<<<<<< HEAD
 			console.log('There is no user logged in');
-=======
 			console.log('There is no user logged');
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 		}
 	};
 

@@ -77,11 +77,6 @@ class Home extends Component {
 			onTheAirShows = this.props.onTheAirShows.onTheAirShows,
 			popularShows = this.props.popularShows.popularShows,
 			topRatedShows = this.props.topRatedShows.topRatedShows;
-<<<<<<< HEAD
-=======
-			console.clear()
-			console.log('API KEY.....', process.env.REACT_APP_API_KEY)
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 		// INVOKING CAROUSEL
 		carousel();
 		return (

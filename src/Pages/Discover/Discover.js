@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import './Discover.sass';
 import axios from 'axios';
 
-<<<<<<< HEAD
 // import Header from '../../components/Discover/Header/Header';
-=======
-import Header from '../../components/Discover/Header/Header';
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 import MoviesContainer from '../../components/Discover/MoviesContainer/MoviesContainer';
 import Pagination from '../../components/Discover/Pagination/Pagination';
 
@@ -25,7 +21,6 @@ class Discover extends Component {
 		this.getMovies();
 	}
 	componentDidUpdate(prevProps, prevState) {
-<<<<<<< HEAD
 		if (this.state.page !== prevState.page) {
 			this.getMovies();
 		}
@@ -41,31 +36,6 @@ class Discover extends Component {
 	};
 	getMovies = () => {
 		const key_API = process.env.REACT_APP_API_KEY;
-=======
-		if (this.state.page !== prevState.page){
-			this.getMovies()
-		}
-	
-	}
-	getFilterInfo = (
-		sortBy,
-		voteAverage,
-		withPeople,
-		withGenres,
-		withKeywords,
-		year
-	) => {
-		if (sortBy) this.setState({ sortBy });
-		if (voteAverage) this.setState({ voteAverage });
-		if (withPeople) this.setState({ withPeople });
-		if (withGenres) this.setState({ withGenres });
-		if (withKeywords) this.setState({ withKeywords });
-		if (year) this.setState({ year });
-	};
-
-getMovies=()=> {
-		const key_API = process.env.REACT_APP_MOVIEDB_API_KEY;
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 		let { page } = this.state;
 		axios
 			.get(
@@ -82,19 +52,11 @@ getMovies=()=> {
 				}${this.state.year ? `year=${this.state.year}` : ''}`
 			)
 			.then(res => {
-<<<<<<< HEAD
-=======
-				// console.log('Discover page result: ', res.data.results);
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 				let movies = res.data.results;
 				this.setState({ movies });
 			})
 			.catch(error => console.log(error));
-<<<<<<< HEAD
 	};
-=======
-	}
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 
 	handlePagination = pageTransition => {
 		if (this.state.page === 1 && pageTransition === '-') {
@@ -107,7 +69,6 @@ getMovies=()=> {
 	};
 
 	render() {
-<<<<<<< HEAD
 		console.clear();
 		console.log('sortby from discover', this.state.sortBy);
 		return (
@@ -176,12 +137,6 @@ getMovies=()=> {
 						</div>
 					</form>
 				</div>
-=======
-		console.log('render')
-		return (
-			<div className='Search'>
-				<Header getFilterInfo={this.getFilterInfo} />
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 				{this.state.movies.length >= 1 ? (
 					<>
 						<MoviesContainer movies={this.state.movies} />

@@ -60,18 +60,11 @@ app.get('/api/signs3', (req, res) => {
 			signedRequest: data,
 			url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
 		};
-<<<<<<< HEAD
 		console.log('holaaaaaaaaaaaaaa', returnData);
 		return res.send(returnData);
 	});
 });
 // ALL ENDPOINTS
-=======
-		console.log('holaaaaaaaaaaaaaa', returnData)
-		return res.send(returnData);
-	});
-});
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 
 // AUTH ENDPOINTS
 app.post('/auth/login', authCtrl.login);
@@ -79,45 +72,13 @@ app.post('/auth/register', authCtrl.register);
 app.post('/auth/logout', authCtrl.logout);
 app.get('/auth/userData', authCtrl.userData);
 
-<<<<<<< HEAD
-// Reviews
-app.post('/api/review', reviewCtrl.createReview);
-app.get('/api/review/:movie_id', reviewCtrl.getMovieReviews);
-app.delete('/api/review/:review_id', reviewCtrl.deleteReview);
-app.put('/api/review/:review_id', reviewCtrl.editReview);
-// app.get('/api/review/:id', reviewCtrl.getUserReviews);
-
-// Favorite Movies
-app.get('/api/favorite_movies/:user_id', moviesAndTvCtrl.getFavMovies);
-=======
-app.post('/api/review', reviewCtrl.createReview);
-app.get('/api/review/:movie_id', reviewCtrl.getMovieReviews);
-app.delete('/api/review/:review_id', reviewCtrl.deleteReview);
-// app.put('/api/review/:review_id', reviewCtrl.editReview);
-// app.get('/api/review/:id', reviewCtrl.getUserReviews);
-
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 app.get('/api/favorite_movies/:movie_id/:user_id', moviesAndTvCtrl.checkMovie);
 app.post('/api/favorite_movies', moviesAndTvCtrl.addFavMovie);
 app.delete(
 	'/api/favorite_movies/:movie_id/:user_id',
 	moviesAndTvCtrl.deleteFavMovie
 );
-<<<<<<< HEAD
 
-// Favorite Shows
-app.get('/api/favorite_shows/:user_id', moviesAndTvCtrl.getFavShows);
-app.get('/api/favorite_shows/:show_id/:user_id', moviesAndTvCtrl.checkShow);
-app.post('/api/favorite_shows', moviesAndTvCtrl.addFavShow);
-app.delete(
-	'/api/favorite_shows/:show_id/:user_id',
-	moviesAndTvCtrl.deleteFavShow
-);
-=======
-app.get('/api/favorite_movies/:user_id', moviesAndTvCtrl.getFavMovies);
-// app.post('/api/favorite_shows', moviesAndTvCtrl.addFavShow);
-// app.get('/api/favorite_shows', moviesAndTvCtrl.getFavShows);
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 
 const port = SERVER_PORT;
 app.listen(port, () => console.log(`Server running on port ${port}`));

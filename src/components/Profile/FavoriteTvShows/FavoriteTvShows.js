@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
@@ -13,6 +13,7 @@ const FavoriteTvShows = props => {
 		getFavShows();
 		console.log('useEffect 1 running');
 	}, []);
+	
 	useEffect(() => {
 		console.log('useEffect 2 running');
 	}, [favShows]);
@@ -29,16 +30,11 @@ const FavoriteTvShows = props => {
 	};
 
 	const deleteFavShows = async show_id => {
-		console.clear();
-		console.log('Show id deleted: ', show_id);
-
 		await Axios.delete(`/api/favorite_shows/${show_id}/${user_id}`).catch(err =>
 			console.log(err)
 		);
 		getFavShows();
 	};
-	// console.clear()
-	console.log('props  from fav tv shows', props);
 	return (
 		<div className='FavoriteTvShows'>
 			<ItemsContainer
@@ -57,17 +53,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { getUser })(FavoriteTvShows);
-=======
-import React from 'react'
 
-const FavoriteTvShows = () => {
-    return (
-        <div className='FavoriteTvShows'>
-            <h1>Favorite Tv Shows component</h1>
-            <h1>Favorite Tv Shows component</h1>
-        </div>
-    )
-}
 
-export default FavoriteTvShows
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043

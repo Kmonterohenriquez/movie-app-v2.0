@@ -31,9 +31,8 @@ export const SINGLE_DETAIL = 'SINGLE_DETAIL';
 //SEARCH
 export const SEARCH_TV = 'SEARCH_TV';
 export const SEARCH_MOVIE = 'SEARCH_MOVIE';
-<<<<<<< HEAD
+
 
 
 export const SEARCH_VALUE ='SEARCH_VALUE';
-=======
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
+

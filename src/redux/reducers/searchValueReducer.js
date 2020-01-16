@@ -1,7 +1,7 @@
 import { SEARCH_VALUE } from '../actions/types';
 
 const initialState = {
-	newValue: 'no hay valor en redux'
+	newValue: '...'
 };
 
 export default function getSearchValueReducer(state = initialState, action) {

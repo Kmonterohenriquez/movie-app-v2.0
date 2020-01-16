@@ -35,19 +35,14 @@ module.exports = {
 			.delete_review(review_id)
 			.then(res.sendStatus(200))
 			.catch(err => res.status(500).send(err));
-<<<<<<< HEAD
 	},
 	editReview: async (req, res) => {
 		const { review_id } = req.params;
 		const review_content = req.body.newReviewContent;
-		// const review_content = 'backend working'
-		// console.log('EDIT FUNCTION FIRED');
 		const db = req.app.get('db');
 		await db.reviews
 			.edit_review(review_id, review_content)
 			.then(review=> res.status(200).send(review))
 			.catch(err => res.status(500).send(err));
-=======
->>>>>>> 662d577d9cfadc60a90cc5bf40ecf6c4dbad2043
 	}
 };
