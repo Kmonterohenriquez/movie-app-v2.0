@@ -6,7 +6,6 @@ const express = require('express'),
 		SERVER_PORT,
 		CONNECTION_STRING,
 		SESSION_SECRET,
-		S3_BUCKET,
 		AWS_ACCESS_KEY_ID,
 		AWS_SECRET_ACCESS_KEY
 	} = process.env,
