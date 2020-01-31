@@ -56,7 +56,7 @@ class UserReviews extends Component {
 										<div className='Review-btns'>
 											<button
 												className='edit-btn'
-												onClick={() => this.saveChange(curr.review_id)}
+											onClick={() => this.saveChange(curr.review_id)}
 											>
 												Save
 											</button>
