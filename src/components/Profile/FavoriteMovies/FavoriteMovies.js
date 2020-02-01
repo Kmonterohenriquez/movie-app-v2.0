@@ -12,7 +12,7 @@ const FavoriteMovies = props => {
 
 	useEffect(() => {
 		getFavMovies();
-		// console.log('useEffect 1 running');
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	useEffect(() => {
 		// console.log('useEffect 2 running');

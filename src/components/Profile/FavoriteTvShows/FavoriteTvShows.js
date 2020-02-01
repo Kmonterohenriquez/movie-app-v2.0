@@ -8,10 +8,10 @@ const FavoriteTvShows = props => {
 	const [favShows, setFavShows] = useState([]);
 
 	const { user_id } = props.user.user;
-
 	useEffect(() => {
 		getFavShows();
 		console.log('useEffect 1 running');
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	
 	useEffect(() => {

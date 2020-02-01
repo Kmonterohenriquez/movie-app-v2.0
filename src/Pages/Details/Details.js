@@ -27,14 +27,11 @@ class Details extends Component {
 	componentDidMount() {
 		const id = this.props.match.params.id;
 		const itemType = this.props.itemType.itemType;
-		// const type = this.state.type;
+
 		this.props.getSingleDetail(itemType, id);
 		this.props.getItemReviews(itemType, id);
-		// this.props.setItem'movie'('tv');
 		this.props.getItemTrailers(itemType, id);
 		this.props.getItemCasts(itemType, id);
-		// this.props.getUser()
-		// this.getUserInfo();
 		this.getReviews();
 	}
 	getReviews = () => {
