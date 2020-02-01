@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import getUser from './redux/actions/user/getUser';
 class App extends Component {
 
-	componentWillMount () {
+	componentDidMount () {
 		new WOW.WOW().init();
 	}
 

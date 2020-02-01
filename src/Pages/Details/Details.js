@@ -50,14 +50,9 @@ class Details extends Component {
 		const reviews = this.props.itemReviews.itemReviews;
 		const trailers = this.props.itemTrailers.itemTrailers;
 		const casts = this.props.itemCasts.itemCasts;
-		// const type = this.props.itemType.itemType;
-
 		const user = this.props.user.user;
 		const itemType = this.props.itemType.itemType;
 
-		// console.log('ITEM TYPE ', itemType);
-		// console.clear()
-		// console.log('movie details from header: ', singleDetail);
 		return (
 			<div className='Details'>
 				<Header
@@ -92,7 +87,6 @@ class Details extends Component {
 const mapStateToProps = state => {
 	return {
 		singleDetail: state.getSingleDetail,
-		// itemType: state.setItemType,
 		itemReviews: state.itemReviewReducer,
 		itemTrailers: state.itemTrailersReducer,
 		itemCasts: state.itemCastsReducer,

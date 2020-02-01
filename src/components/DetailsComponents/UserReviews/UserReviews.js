@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import '../PopularReviews/PopularReviews.sass';
 import './UserReviews.sass';
 import axios from 'axios';
 
@@ -71,7 +70,6 @@ class UserReviews extends Component {
 							<div className='Review-container'>
 								<div className='Review'>
 									<div className='Review-user-info'>
-										{/* <i className='User-icon fas fa-user-circle'></i> */}
 										<div className='user-pic'>
 											<img src={curr.user_picture} alt='' />
 										</div>

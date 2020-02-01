@@ -14,9 +14,7 @@ const FavoriteMovies = props => {
 		getFavMovies();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	useEffect(() => {
-		// console.log('useEffect 2 running');
-	}, [favMovies]);
+	useEffect(() => {}, [favMovies]);
 
 	const getFavMovies = async () => {
 		await Axios.get(`/api/favorite_movies/${user_id}`)

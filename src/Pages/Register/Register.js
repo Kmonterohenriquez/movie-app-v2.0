@@ -5,21 +5,16 @@ import axios from 'axios';
 import getUser from '../../redux/actions/user/getUser';
 import profile_placeholder from '../../img/profile-placeholder.jpg';
 import './Register.sass';
-// import userPlaceholder from '../../img/profile-placeholder.jpg';
 import lights from '../../img/lights.jpg';
-
 import Dropzone from 'react-dropzone';
 import { v4 as randomString } from 'uuid';
-// import { GridLoader } from 'react-spinners';
+
 const Register = props => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
-	// const [user_pic, setUserPic] = useState(profile_placeholder);
-	// const [isUploading, setIsUploading] = useState(false);
 	const [url, setUrl] = useState(profile_placeholder);
-	console.clear()
-	console.log('Email', email)
+
 	const handleSubmit = e => {
 		e.preventDefault();
 		let user_pic = url;
@@ -31,8 +26,6 @@ const Register = props => {
 			})
 			.catch(err => console.log(err.response.data.error));
 	};
-	console.log('sign up btn hit');
-	console.log('URL::: ', url)
 	const getSignedRequest = ([file]) => {
 		// setIsUploading(true);
 		// We are creating a file name that consists of a random string, and the name of the file that was just uploaded with the spaces removed and hyphens inserted instead. This is done using the .replace function with a specific regular expression. This will ensure that each file uploaded has a unique name which will prevent files from overwriting other files due to duplicate names.
@@ -82,7 +75,6 @@ const Register = props => {
 	};
 	return (
 		<div className='Register'>
-			
 			<Link to='/login'>
 				<i
 					className='arrow fas fa-chevron-left wow bounceInLeft'
@@ -101,26 +93,27 @@ const Register = props => {
 				<div className='img-container'>
 					<img className='profile-img' src={url} alt='' />
 					<Dropzone
-					onDropAccepted={getSignedRequest}
-					accept='image/*'
-					multiple={false}
-					className='test'
-				>
-					{({ getRootProps, getInputProps }) => (
-						<div className='container'>
-							<div
-								{...getRootProps({
-									className: 'dropzone',
-									onDrop: event => event.stopPropagation()
-								})}
-							>
-								
-								<input {...getInputProps()} />
-								<div className='camera-container'><i className="fas fa-camera"></i></div>
+						onDropAccepted={getSignedRequest}
+						accept='image/*'
+						multiple={false}
+						className='test'
+					>
+						{({ getRootProps, getInputProps }) => (
+							<div className='container'>
+								<div
+									{...getRootProps({
+										className: 'dropzone',
+										onDrop: event => event.stopPropagation()
+									})}
+								>
+									<input {...getInputProps()} />
+									<div className='camera-container'>
+										<i className='fas fa-camera'></i>
+									</div>
+								</div>
 							</div>
-						</div>
-					)}
-				</Dropzone>
+						)}
+					</Dropzone>
 				</div>
 				<form onSubmit={e => handleSubmit(e)}>
 					<div className='Username-input'>
