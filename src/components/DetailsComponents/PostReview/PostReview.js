@@ -64,7 +64,7 @@ class PostReview extends Component {
 								placeholder='Write a comment...'
 								required
 							/>
-							{user === undefined && this.state.showMsg === true ? (
+							{user === undefined || this.state.showMsg === true ? (
 								<p className='alert-error wow bounceIn' data-wow-delay='.5s'>No user is logged in.</p>
 							) : null}
 						</div>

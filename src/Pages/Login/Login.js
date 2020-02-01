@@ -16,7 +16,7 @@ const Login = props => {
 		e.preventDefault();
 		axios.post('/auth/login', { email, password }).then(res => {
 			props.getUser(res.data);
-
+			props.history.push('/')
 	});}
 
 	return (

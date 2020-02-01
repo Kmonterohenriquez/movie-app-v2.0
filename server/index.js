@@ -1,8 +1,10 @@
-require('dotenv').config({path:__dirname+'/./../../.env'})
+// require('dotenv').config({path:__dirname+'/./../../.env'})
+require('dotenv').config()
 const express = require('express'),
 	massive = require('massive'),
 	session = require('express-session'),
 	{
+		S3_BUCKET,
 		SERVER_PORT,
 		CONNECTION_STRING,
 		SESSION_SECRET,

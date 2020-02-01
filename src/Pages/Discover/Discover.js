@@ -69,8 +69,7 @@ class Discover extends Component {
 	};
 
 	render() {
-		console.clear();
-		console.log('sortby from discover', this.state.sortBy);
+		
 		return (
 			<div className='Search'>
 				<div className='Header'>

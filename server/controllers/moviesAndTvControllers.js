@@ -8,10 +8,8 @@ module.exports = {
 			.catch(err => res.status(500).send(err));
 	},
 	addFavMovie: async (req, res) => {
-		// Bringing info from the frond end
 		const { movie_id, movie_pic, movie_rate, user_id, movie_name } = req.body;
 
-		// set db to a variable
 		const db = req.app.get('db');
 
 		await db.movies_and_tv
