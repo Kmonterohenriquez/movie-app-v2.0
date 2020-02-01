@@ -1,5 +1,5 @@
 // require('dotenv').config({path:__dirname+'/./../../.env'})
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express'),
 	massive = require('massive'),
 	session = require('express-session'),
@@ -18,7 +18,7 @@ const express = require('express'),
 	app = express();
 
 app.use(express.json());
-app.use( express.static( `${__dirname}/../build` ) );
+app.use(express.static(`${__dirname}/../build`));
 // SESSION
 app.use(
 	session({
@@ -61,18 +61,19 @@ app.get('/api/signs3', (req, res) => {
 			signedRequest: data,
 			url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
 		};
-		console.log('holaaaaaaaaaaaaaa', returnData);
+		console.log(returnData);
 		return res.send(returnData);
 	});
 });
 // ALL ENDPOINTS
 
-// AUTH ENDPOINTS
+//  AUTH ENDPOINTS  //
 app.post('/auth/login', authCtrl.login);
 app.post('/auth/register', authCtrl.register);
 app.post('/auth/logout', authCtrl.logout);
 app.get('/auth/userData', authCtrl.userData);
 
+//  FAVORITE MOVIES  //
 app.get('/api/favorite_movies/:movie_id/:user_id', moviesAndTvCtrl.checkMovie);
 app.post('/api/favorite_movies', moviesAndTvCtrl.addFavMovie);
 app.delete(
@@ -80,6 +81,13 @@ app.delete(
 	moviesAndTvCtrl.deleteFavMovie
 );
 
+//  FAVORITES SHOWS   //
+
+//  REVIEWS  //
+app.post('/api/review', reviewCtrl.createReview); //create review
+app.get('/api/review/:movie_id'); // get users' review for each movie or tv
+app.delete('/api/review/:review_id', reviewCtrl.deleteReview); //delete users' review
+app.put('/api/review/:review_id', reviewCtrl.editReview); // Edit users' review
 
 const port = SERVER_PORT;
 app.listen(port, () => console.log(`Server running on port ${port}`));

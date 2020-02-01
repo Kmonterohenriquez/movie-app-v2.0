@@ -9,7 +9,7 @@ class UserReviews extends Component {
 		editingReview: 0,
 		newReviewContent: ''
 	};
-	
+
 	deleteReview = review_id => {
 		axios.delete(`/api/review/${review_id}`).catch(err => console.log(err));
 		this.props.getReviews();
@@ -56,7 +56,7 @@ class UserReviews extends Component {
 										<div className='Review-btns'>
 											<button
 												className='edit-btn'
-											onClick={() => this.saveChange(curr.review_id)}
+												onClick={() => this.saveChange(curr.review_id)}
 											>
 												Save
 											</button>
