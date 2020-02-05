@@ -96,6 +96,7 @@ class Nav extends Component {
 							)}
 						</ul>
 					</nav>
+				<i className="menu-icon fas fa-ellipsis-h"></i>
 				</div>
 			</header>
 		);

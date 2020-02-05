@@ -2,9 +2,9 @@
     outline: none
     
     // box-sizing: border-box
-@mixin container($max-width)
+@mixin container($width, $max-width)
     margin: 0 auto 
-    width: 80%
+    width: $width
     max-width: $max-width
 
 
@@ -23,8 +23,12 @@ $orange-color-2: #ee4540
 
 
 .container 
-    @include container(1500px)
-// .lg-container
+    @include container(80%, 1500px)
+@media (max-width: 700px)
+    .container
+        @include container(95%, 1500px)  
+
+            
 
 
 
