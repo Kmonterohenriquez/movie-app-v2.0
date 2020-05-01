@@ -15,7 +15,6 @@
 		"env-cmd": "^10.0.1",
 		"express": "^4.17.1",
 		"express-session": "^1.17.0",
-		"less": "^3.10.3",
 		"massive": "^6.1.4",
 		"node-sass": "^4.13.0",
 		"react": "^16.12.0",
