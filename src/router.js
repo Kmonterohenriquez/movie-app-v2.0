@@ -20,6 +20,5 @@ export default (
 		<Route component={Details} path='/details/:id' />
 		<Route component={SearchResult} path='/search_result' />
 		<Route component={Profile} path='/profile' />
-
 	</Switch>
 );
