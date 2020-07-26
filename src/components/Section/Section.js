@@ -6,7 +6,7 @@ import separator from '../../img/separator.png';
 
 const Section = props => {
 	useEffect(() => {
-		new WOW.WOW().init();
+		new WOW.WOW({ live: false }).init();
 	});
 	return (
 		<div className='Small-sliders wow fadeInUp' data-wow-delay='.5s'>

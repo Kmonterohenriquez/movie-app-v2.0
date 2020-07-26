@@ -7,7 +7,7 @@ import WOW from 'wowjs';
 class SearchResult extends Component {
 	state = {};
 	componentDidMount() {
-		new WOW.WOW().init();
+		new WOW.WOW({ live: false }).init();
 	}
 	render() {
 		
