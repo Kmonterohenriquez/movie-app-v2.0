@@ -14,8 +14,8 @@ function Footer(){
                     <nav>
                         {/* <Fade left cascade delay={1000} > */}
                             <ul>
-                                <li><span>Portfolio:</span> <a href='https://kevinmontero.netlify.com/'>kevinmontero.netlify.com</a></li>
-                                <li><span>Phone:</span> <a href="tel:4076806814">(407) 680-6814</a></li>
+                                <li><span>Portfolio:</span> <a href='https://kevinmontero.com/'>www.kevinmontero..com</a></li>
+                                <li><span>Phone:</span> <a href="tel:8637779366">(863) 777-9366</a></li>
                             </ul>
                         {/* </Fade> */}
                     </nav></div>
