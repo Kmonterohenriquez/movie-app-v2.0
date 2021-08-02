@@ -21,29 +21,29 @@ This a website which provide information about movies and series where users can
 ---
 ## Dependencies
 ---
-aws-sdk
-axios
-bcryptjs
-dotenv
-env-cmd
-express
-express-session
-massive
-node-sass
-react
-react-dom
-react-dropzone
-react-redux
-react-reveal
-react-router-dom
-react-scripts
-react-slick
-react-spinners
-redux
-redux-promise-middleware
-redux-thunk
-swiper
-wowjs
+* aws-sdk
+* axios
+* bcryptjs
+* dotenv
+* env-cmd
+* express
+* express-session
+* massive
+* node-sass
+* react
+* react-dom
+* react-dropzone
+* react-redux
+* react-reveal
+* react-router-dom
+* react-scripts
+* react-slick
+* react-spinners
+* redux
+* redux-promise-middleware
+* redux-thunk
+* swiper
+* wowjs
 
 
 <!-- ## Benefits -->
